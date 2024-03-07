@@ -8,12 +8,12 @@
 }
 
 body{
-    background-color: 2F4F4F;
+    background-color: #eaf3f3;
 }
 
 /* Estilo do cabeçalho */
 header {
-    background-color: #1c1e21;
+    background-color: #2c2e31;
     color: white;
     display: flex;
     align-items: center;
