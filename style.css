@@ -1,0 +1,298 @@
+/* Adicione seu estilo CSS aqui */
+
+/* Estilo geral do site */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: 2F4F4F;
+}
+
+/* Estilo do cabeçalho */
+header {
+    background-color: #1c1e21;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+header h1 {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+}
+
+header nav {
+    display: flex;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+}
+
+header nav a:hover {
+    color: #ccc;
+}
+
+/* Estilo do conteúdo principal */
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+
+
+.div_titles{
+    background-color: #1c1e21;
+    padding: 10px;
+}
+.titles{
+    color: #ccc;
+}
+
+#imgperfil{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#imgperfil img{
+    width: 128px;
+}
+
+.tab{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    zoom: 1;
+}
+
+.tab p{
+    text-align: center;
+    width: 800px;
+}
+
+.projects {
+    max-width: 1200px;
+    height: 150px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+
+.projects section {
+    background-color: #1c1e21;
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 10;
+    padding-left: 20;
+    padding-right: 20;
+    padding-bottom: 10;
+    border-radius: 8px;
+   
+}
+
+
+.projects section h2 {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    margin-top: 20%;
+    text-align: center;
+    animation: alternate;
+    animation-duration: 999ms;
+    color: #ccc;
+}
+
+.projects section p {
+    font-family: Arial, sans-serif;
+    font-size: 8px;
+    line-height: 1.5;
+}
+
+.languages{
+    flex-direction: row;
+    display: none;
+}
+
+.langprimary{
+    width: 10px;
+    height: 10px;
+    background: blue;
+    border-radius: 50%;
+    cursor: pointer;
+    float: left;
+    margin-top: 8px;
+    margin-right: 2px;
+    margin-left: 10px;
+    image-rendering: auto;
+
+}
+
+
+
+/* Estilo do rodapé */
+footer {
+    margin-bottom: 0;
+    background-color: #333;
+    color: #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+footer p {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+section p {
+    display: none;
+}
+
+/* Exibe o parágrafo quando o mouse passa sobre a seção */
+
+section:hover p {
+    display: block;
+    height: 50%;
+    font-size:small;
+    color: #ccc;
+    padding: 3px;
+}
+section:hover{
+    background-color: #1c1e21;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+section:hover h2{
+    color: #ccc;
+    margin-top: 8;
+    margin-bottom: 5px;
+}
+
+section:hover .languages{
+    display: flex;
+    flex-direction: row;
+}
+
+.clickproject{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Secao de Habilidades */
+
+.habilities{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.habilities img{
+    width: 32px;
+}
+
+.habilities_lang{
+   
+    background-color: #2F4F4F;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.habilities_bd{
+    background-color: #2F4F4F;
+    border-left:#333;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.habilities_amb{
+    background-color: #2F4F4F;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.habilities_card{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 185.34px;
+    flex-basis: 50%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.habilities_card img:hover{
+    border-image: 5px;
+    border: #3fd77c;
+}
+
+
+
+/* Secao de contato */
+.contact{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.contact_card{
+    background-color: #1c1e21;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    margin-left: 60px;
+    margin-right: 60px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.contact_card img{
+    padding: 8px;
+}
+.contact_card p{
+    color: #ccc;
+}
+
+#img_email{
+    border: #333;
+    margin-left: 10px;
+    width: 50px;
+}
+
+
+
+
+/* Estilo responsivo para telas menores que 768px */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
