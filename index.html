@@ -3,6 +3,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+    <!-- Google Fonts Link For Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
 </head>
 <body>
     <header>
@@ -26,19 +32,44 @@
     
     <div class="content">
        <main >
+
         <div class="div_titles">
             <h1 align="center" class="titles">th</h1>
         </div>
-        <div id="div-banners">
-            <img src="./img/banners/banner1.png">
+  
+        <div class="container">
+            <div class="slider-wrapper">
+              <button id="prev-slide" class="slide-button material-symbols-rounded">
+                chevron_left
+              </button>
+    
+              <ul class="image-list">
+                <img class="image-item" onclick="acao('arara')" src="img/banners/banner1.png" alt="img-1" />
+                <img class="image-item" onclick="acao('onça')" src="img/banners/banner2.jpg" alt="img-2" />
+                <img class="image-item" onclick="acao('capivara')" src="img/banners/banner3.png" alt="img-3" />
+        
+              </ul>
+    
+              <button id="next-slide" class="slide-button material-symbols-rounded">
+                chevron_right
+              </button>
+    
+            </div>
+    
+            <div class="slider-scrollbar">
+                <div class="scrollbar-track">
+                    <div class="scrollbar-thumb"></div>
+                </div>
+            </div>
+
         </div>
-        <div class="tabe">
-            <p>fg</p>
-        </div>
+
+        
        
         <div class="div_titles">
             <h1 align="center" class="titles">Seções</h1>
         </div>
+        
         <div class="projects">
             <section id="p1">
                 <h2>Feminina</h2>
