@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/login.css"> <!-- Aqui você pode linkar seu arquivo CSS para estilizar a página -->
+</head>
+<body>
+
+    <header>
+        <h1>NomeLoja</h1>
+        <div class="header-search" bis_skinchecked="1">
+            <form class="search" method="get" action="/catalog/">
+                <div class="search-group" >
+                    <input id="input-search" type="search" autocomplete="off" class="search-input search-suggestion-input" placeholder="O que você procura?">
+                <button class="search-button" type="submit" onclick="">
+                </button>
+                </div>
+                
+            </form>
+        </div>
+        <nav>
+            <a href="https://google.com"><img src="img/icons/ic_cupom.png"></a>
+            <a href="https://google.com"><img src="img/icons/ic_sacola.png"></a>
+            <a href="login.html"><img src="img/icons/ic_account.png?"></a>
+        </nav>
+    </header>
+
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="processa_login.php" method="POST"> <!-- Aqui você define o action para o script que irá processar o login -->
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Email:</label>
+                <input type="text" id="username" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
