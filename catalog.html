@@ -10,11 +10,11 @@
     <div id="resultados" class="grid-container">
         <!-- Cada item de roupa -->
         <div class="item">
-          <img src="imagem-roupa1.jpg" alt="Roupa 1">
-          <h3>Roupa 1</h3>
-          <p>Descrição da Roupa 1</p>
-          <p class="preco">$29.99</p>
-          <button class="btn-adicionar">Adicionar ao Carrinho</button>
+            <img id="imagem-roupa-1" alt="Roupa 1">
+            <h3>Roupa 1</h3>
+            <p>Descrição da Roupa 1</p>
+            <p class="valor">$29.99</p>
+            <button class="btn-adicionar">Adicionar ao Carrinho</button>
         </div>
         <!-- Outros itens de roupa aqui -->
     </div>
@@ -52,6 +52,7 @@
                 // Crie elementos HTML para exibir os dados
                 const roupaDiv = document.createElement('div');
                 roupaDiv.innerHTML = `
+                    <img src="${doc.data().img} alt="Imagem da Roupa">
                     <h3>${doc.data().nome}</h3>
                     <p>Valor: ${doc.data().valor}</p>
                     <!-- Adicione mais campos conforme necessário -->

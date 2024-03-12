@@ -2,34 +2,37 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-  }
+}
   
-  .item {
+.grid-container div {
+    display: flex;
+    flex-direction: column;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 15px;
-  }
+    align-items: center;
+}
   
-  .item img {
-    width: 100%;
+.grid-container img {
+    width: 50%;
     border-radius: 5px;
-  }
+}
   
-  .item h3 {
+.grid-container h3 {
     margin-top: 10px;
     font-size: 1.2rem;
-  }
+}
   
-  .item p {
+.item p {
     color: #666;
-  }
+}
   
-  .preco {
+.valor {
     color: #007bff;
     font-weight: bold;
-  }
+}
   
-  .btn-adicionar {
+.btn-adicionar {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -37,9 +40,9 @@
     padding: 8px 15px;
     margin-top: 10px;
     cursor: pointer;
-  }
+}
   
-  .btn-adicionar:hover {
+.btn-adicionar:hover {
     background-color: #0056b3;
-  }
+}
   

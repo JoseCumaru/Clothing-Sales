@@ -38,6 +38,7 @@ async function getRoupasFemininasAdulto() {
     // Crie elementos HTML para exibir os dados
     const roupaDiv = document.createElement('div');
     roupaDiv.innerHTML = `
+      <img>${doc.data().img}<img>
       <h3>${doc.data().nome}</h3>
       <p>valor: ${doc.data().valor}</p>
       <!-- Adicione mais campos conforme necessário -->
