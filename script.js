@@ -1,12 +1,13 @@
+// Funcao pata chamar no whatsapp
 function chamarWhatsapp(){
     var number = "+5597984398480"
 
-    var url = "https://api.whatsapp.com/send?phone=1234567890" + numeroTelefone;
+    var url = "https://api.whatsapp.com/send?phone=" + number;
 
     window.location.href = url;
-    
 }
 
+//Inicializa o Slidder
 const initSlider = () => {
     const imageList = document.querySelector(".slider-wrapper .image-list");
     const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
@@ -89,7 +90,7 @@ const initSlider = () => {
 
         currentSlide = nextSlideIndex;
     };
-
+    // Define o intervalo para a troca automática de slides (a cada 3 segundos, por exemplo)
     const intervalId = setInterval(nextSlide, 3000);
 
     /*sliderScrollbar.addEventListener("mouseover", () => {
@@ -106,7 +107,7 @@ const initSlider = () => {
 window.addEventListener("resize", initSlider);
 window.addEventListener("load", initSlider);
 
-// Define o intervalo para a troca automática de slides (a cada 3 segundos, por exemplo)
+
 
 
 

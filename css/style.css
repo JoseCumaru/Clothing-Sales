@@ -130,7 +130,6 @@ header nav a:hover {
 /*Slider*/
 .container {
     width: 100%;
-    max-width: 1280px;
     backdrop-filter: blur(32px);
     border-radius: 18px;
   }
@@ -239,8 +238,8 @@ header nav a:hover {
 
 
 
-.projects {
-    max-width: 1200px;
+.secao {
+    width: 100%;
     height: 150px;
     margin: 20px auto;
     display: grid;
@@ -249,31 +248,27 @@ header nav a:hover {
 }
 
 
-.projects section {
-    background-color: #1c1e21;
+.secao section {
+    background-color: #3eecad;
     background-size: 50%;
     background-position: center;
     background-repeat: no-repeat;
     padding-top: 10;
-    padding-left: 20;
-    padding-right: 20;
     padding-bottom: 10;
     border-radius: 8px;
-   
 }
 
-
-.projects section h2 {
+.secao section h2 {
     font-family: Arial, sans-serif;
     font-size: 18px;
     margin-top: 20%;
     text-align: center;
     animation: alternate;
     animation-duration: 999ms;
-    color: #ccc;
+    color: black;
 }
 
-.projects section p {
+.secao section p {
     font-family: Arial, sans-serif;
     font-size: 8px;
     line-height: 1.5;
@@ -300,26 +295,13 @@ header nav a:hover {
 
 
 
-/* Estilo do rodapé */
-footer {
-    margin-bottom: 0;
-    background-color: #333;
-    color: #ccc;
-    padding: 10px;
-    text-align: center;
-}
 
-footer p {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-}
+
+/* Exibe o parágrafo quando o mouse passa sobre a seção */
 
 section p {
     display: none;
 }
-
-/* Exibe o parágrafo quando o mouse passa sobre a seção */
-
 section:hover p {
     display: block;
     height: 50%;
@@ -350,9 +332,9 @@ section:hover .languages{
 }
 
 
-/* Secao de Habilidades */
 
-.habilities{
+/* Secao de Habilidades */
+.marcas{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -360,20 +342,18 @@ section:hover .languages{
     margin: 20px auto;
 }
 
-.habilities img{
+.marcas img{
     width: 32px;
 }
 
 .habilities_lang{
    
-    background-color: #2F4F4F;
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
 }
 
-.habilities_bd{
-    background-color: #2F4F4F;
+.habilities_bd{ 
     border-left:#333;
     display: flex;
     flex-wrap: wrap;
@@ -381,7 +361,6 @@ section:hover .languages{
 }
 
 .habilities_amb{
-    background-color: #2F4F4F;
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
@@ -438,8 +417,26 @@ section:hover .languages{
     margin-left: 10px;
     width: 50px;
 }
+#img_whatsapp{
+    border: #333;
+    margin-left: 10px;
+    width: 50px;
+}
 
 
+
+/* Estilo do rodapé */
+footer {
+    margin-bottom: 0;
+    background-color: #333;
+    color: #ccc;
+    padding: 10px;
+    text-align: center;
+}
+footer p {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
 
 
 /* Estilo responsivo para telas menores que 768px */
