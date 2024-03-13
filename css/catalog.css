@@ -1,6 +1,136 @@
+/* Estilo geral do site */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #eaf3f3;
+}
+
+/* Estilo do cabeçalho */
+header {
+    background-color: #3eecad;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+header h1 {
+    color: #000000;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+}
+
+
+/* CSS Busca */
+header .header-search {
+    padding-top: 0px;
+    margin-top: -3px;
+}
+header .header-search .search {
+    width: 312px;
+    position: relative;
+    z-index: 13;
+}
+header .header-search .search .search-group {
+    border: none;
+    padding: 5px 0px 5px 0px;
+    width: 100%;
+    height: 28px;
+    background-color: transparent;
+}
+header .header-search .search .search-group .search-input {
+    width: 90%;
+    height: 28px;
+    font-size: 12px;
+    padding: 0 32px 0px 5px;
+    border-width: 1px;
+    border-color: #cccccc;
+    border-style: solid;
+    background-color: #f6f6f6;
+    float: right;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    -webkit-transition: width 0.2s ease;
+    -moz-transition: width 0.2s ease;
+    -o-transition: width 0.2s ease;
+    transition: width 0.2s ease;
+    float: left;
+}
+header .header-search .search .search-group .search-button {
+    width: 10%;
+    height: 28px;
+    background: #000000;
+    color: #fff;
+    top: 5px;
+    right: 0;
+    padding: 1px 0 0 0;
+    cursor: pointer;
+    outline: none;
+    font-size: 14px;
+    border: 1px solid #000;
+    float: right;
+}
+
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin: 10px;
+}
+
+header nav img {
+    width: 25;
+    text-decoration: none;
+    margin: 10px;
+}
+
+header nav a:hover {
+    color: #ccc;
+}
+
+
+
+/* Estilo do conteúdo principal */
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.div_titles{
+    background-color: #ced7da;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.titles{
+    color: #000000;
+}
+
+
+
+
+
+/* Estilo dos itens */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
     gap: 20px;
 }
   
@@ -46,3 +176,10 @@
     background-color: #0056b3;
 }
   
+
+/* Estilo responsivo para telas menores que 768px */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

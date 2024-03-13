@@ -16,6 +16,7 @@ header {
     background-color: #3eecad;
     color: white;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 15px;
@@ -247,12 +248,10 @@ header nav a:hover {
     grid-gap: 20px;
 }
 
-
 .secao section {
+    height: 100%;
     background-color: #3eecad;
-    background-size: 50%;
     background-position: center;
-    background-repeat: no-repeat;
     padding-top: 10;
     padding-bottom: 10;
     border-radius: 8px;
@@ -298,7 +297,6 @@ header nav a:hover {
 
 
 /* Exibe o parágrafo quando o mouse passa sobre a seção */
-
 section p {
     display: none;
 }
