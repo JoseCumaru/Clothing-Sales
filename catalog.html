@@ -76,18 +76,21 @@
  
              // Escolha a referência correta com base na categoria selecionada
              switch (categoria) {
-                 case 'masculina':
-                     roupasRef = db.collection('Roupas').doc('Masculino').collection('Adulto');
-                     break;
-                 case 'feminina':
-                     roupasRef = db.collection('Roupas').doc('Feminino').collection('Adulto');
-                     break;
-                 case 'infantil':
-                     roupasRef = db.collection('Roupas').doc('Infantil').collection('Infantil');
-                     break;
+                case 'masculina':
+                    roupasRef = db.collection('Roupas').doc('Masculino').collection('Adulto');
+                    break;
+                case 'masculina-infantil':
+                    roupasRef = db.collection('Roupas').doc('Masculino').collection('Infantil');
+                    break;
+                case 'feminina':
+                    roupasRef = db.collection('Roupas').doc('Feminino').collection('Adulto');
+                    break;
+                 case 'feminina-infantil':
+                    roupasRef = db.collection('Roupas').doc('Feminino').collection('Infantil');
+                    break;
                  default:
-                     console.error('Categoria inválida:', categoria);
-                     return;
+                    console.error('Categoria inválida:', categoria);
+                    return;
              }
  
              // Obtenha os dados do Firestore
