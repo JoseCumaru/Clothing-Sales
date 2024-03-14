@@ -8,11 +8,14 @@
 }
 
 body{
+    width: 100%;
+    height: 100%;
     background-color: #eaf3f3;
 }
 
 /* Estilo do cabeçalho */
 header {
+    width: 100%;
     background-color: #3eecad;
     color: white;
     display: flex;
@@ -21,21 +24,24 @@ header {
     justify-content: space-between;
     padding: 15px;
 }
-
-header h1 {
+header .nome-loja{
+    
+}
+header .nome-loja h1 {
     color: #000000;
     font-family: Arial, sans-serif;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 
 /* CSS Busca */
 header .header-search {
+    width: 312px;
     padding-top: 0px;
     margin-top: -3px;
 }
 header .header-search .search {
-    width: 312px;
+    width: 100%;
     position: relative;
     z-index: 13;
 }
@@ -43,12 +49,12 @@ header .header-search .search .search-group {
     border: none;
     padding: 5px 0px 5px 0px;
     width: 100%;
-    height: 28px;
+    height: 25px;
     background-color: transparent;
 }
 header .header-search .search .search-group .search-input {
     width: 90%;
-    height: 28px;
+    height: 25px;
     font-size: 12px;
     padding: 0 32px 0px 5px;
     border-width: 1px;
@@ -68,7 +74,7 @@ header .header-search .search .search-group .search-input {
 }
 header .header-search .search .search-group .search-button {
     width: 10%;
-    height: 28px;
+    height: 25px;
     background: #000000;
     color: #fff;
     top: 5px;
@@ -82,24 +88,24 @@ header .header-search .search .search-group .search-button {
 }
 
 
-header nav {
+header .header-nav-class{
+    
+}
+header .header-nav-class nav {
     display: flex;
     align-items: center;
 }
-
-header nav a {
+header .header-nav-class nav a {
     color: rgb(0, 0, 0);
     text-decoration: none;
     margin: 10px;
 }
-
-header nav img {
+header .header-nav-class nav img {
     width: 25;
     text-decoration: none;
     margin: 10px;
 }
-
-header nav a:hover {
+header .header-nav-class nav a:hover {
     color: #ccc;
 }
 
