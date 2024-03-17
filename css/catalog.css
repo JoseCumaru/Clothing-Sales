@@ -1,29 +1,34 @@
-/* Estilo geral do site */
-* {
-    box-sizing: border-box;
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
-
-body{
-    background-color: #eaf3f3;
+main{
+    background-color: #fff;
+    margin-top: 80px;
+    
 }
+
 
 /* Estilo do cabeçalho */
 header {
-    background-color: #3eecad;
-    color: white;
+    background-color: rgba(250,250,250,255);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 header h1 {
     color: #000000;
     font-family: Arial, sans-serif;
     font-size: 24px;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
 }
 
 
@@ -31,11 +36,13 @@ header h1 {
 header .header-search {
     padding-top: 0px;
     margin-top: -3px;
+    color: #fff;
 }
 header .header-search .search {
     width: 312px;
     position: relative;
     z-index: 13;
+    color: #000000;
 }
 header .header-search .search .search-group {
     border: none;
@@ -43,26 +50,27 @@ header .header-search .search .search-group {
     width: 100%;
     height: 28px;
     background-color: transparent;
+    color: #fff;
 }
 header .header-search .search .search-group .search-input {
     width: 90%;
-    height: 28px;
-    font-size: 12px;
+    height: 50px;
+    font-size: 15px;
     padding: 0 32px 0px 5px;
-    border-width: 1px;
-    border-color: #cccccc;
-    border-style: solid;
-    background-color: #f6f6f6;
     float: right;
     outline: none;
     -webkit-appearance: none;
     appearance: none;
-    border-radius: 0;
+    border-radius: 2em;
+    padding-left: 10px;
+    border: none;
     -webkit-transition: width 0.2s ease;
     -moz-transition: width 0.2s ease;
     -o-transition: width 0.2s ease;
     transition: width 0.2s ease;
     float: left;
+    background-color: rgba(212, 212, 212, 0.5);
+    color: #fff;
 }
 header .header-search .search .search-group .search-button {
     width: 10%;
@@ -77,6 +85,9 @@ header .header-search .search .search-group .search-button {
     font-size: 14px;
     border: 1px solid #000;
     float: right;
+}
+#imgBusca{
+    width: 75%;
 }
 
 
@@ -108,9 +119,8 @@ header nav a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
-    padding-left: 10%;
-    padding-right: 10%;
+    width: 90%;
+    padding-left: 5%;
 }
 .div_titles{
     background-color: #ced7da;
