@@ -254,10 +254,17 @@ header nav a:hover {
   /*Slider*/
 .secao {
     width: 100%;
-    margin: 20px auto;
+    margin: 20px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
+}
+@media (max-width: 768px) {
+    .secao {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 15px;
+        margin-bottom: 25%;
+    }
 }
 
 .secao section {
@@ -268,7 +275,9 @@ header nav a:hover {
     padding-top: 10;
     padding-bottom: 10;
     border-radius: 8px;
+    
 }
+
 
 .secao section h2 {
     font-family: Arial, sans-serif;
