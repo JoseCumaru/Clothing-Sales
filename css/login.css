@@ -118,13 +118,41 @@ h2 {
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.register-class {
+    display: flex;
+    flex-direction: row;
+}
+
+.register-class h3{
+    font-size: smaller;
+    padding-left: 4px;
+}
+.other-access{
+    display: flex;
+    flex-direction: column;
+}
+#other-access-imgs{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+}
+
+#other-access-imgs img {
+    width: 25;
+    text-decoration: none;
+    margin: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
     color: #555;
+    align-self: center;
 }
 
 input[type="text"],
@@ -138,6 +166,7 @@ input[type="password"] {
 button {
     width: 100%;
     padding: 10px;
+    margin-top: 15px;
     background-color: #3eecad;
     color: black;
     border: none;

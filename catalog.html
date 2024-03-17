@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>NomeLoja</h1>
+        <h1>Eternal Sunshine</h1>
         <div class="header-search" bis_skinchecked="1">
             <form class="search" method="get" action="/catalog/">
                 <div class="search-group" >
@@ -31,7 +31,7 @@
         <main>
 
             <div class="div_titles">
-                <h1 align="center" class="titles">th</h1>
+                <h1 align="center" class="title-1"></h1>
             </div>
 
             <div id="resultados" class="grid-container">
@@ -48,10 +48,17 @@
         </main>
     </div>
 
+
+
+
      <!-- Inclua os scripts do Firebase diretamente no HTML -->
      <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
      <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
      <script>
+
+        const title_1 = document.querySelector(".title-1");
+
+
          const firebaseConfig = {
             apiKey: "AIzaSyDKROCfYUdEzG8gCkjVYGfHwDHsGhvu7ZA",
             authDomain: "clothingsales-2ace7.firebaseapp.com",
@@ -114,6 +121,7 @@
              const urlParams = new URLSearchParams(window.location.search);
              const categoria = urlParams.get('categoria');
              if (categoria) {
+                 title_1.textContent = categoria;
                  getRoupas(categoria);
              } else {
                  console.error('Nenhuma categoria selecionada.');
