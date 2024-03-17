@@ -1,0 +1,67 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="#"> <!-- Aqui você pode linkar seu arquivo CSS para estilizar a página -->
+</head>
+<body>
+
+    <header>
+        <a href="index.html"><h1>Eternal Sunshine</h1></a>
+        <div class="header-search" bis_skinchecked="1">
+            <form class="search" method="get" action="/catalog/">
+                <div class="search-group" >
+                    <input id="input-search" type="search" autocomplete="off" class="search-input search-suggestion-input" placeholder="O que você procura?">
+                <button class="search-button" type="submit" onclick="">
+                    <img id="imgBusca" src="img/icons/ic_google.png">
+                </button>
+                </div>
+                
+            </form>
+        </div>
+        <nav>
+            <a href="https://google.com"><img src="img/icons/ic_cupom.png"></a>
+            <a href="https://google.com"><img src="img/icons/ic_sacola.png"></a>
+            <a href="login.html"><img src="img/icons/ic_account.png?"></a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="cadastro-container">
+            <h2>Login</h2>
+            <form action="processa_cadastro.php" method="POST"> <!-- Aqui você define o action para o script que irá processar o login -->
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Email</label>
+                    <input type="text" id="username" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Confirm your Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+    
+                <div class="form-group">
+                    <div class="other-access">
+                        <label for="username">----------   ou   ----------</label>
+                        <div id="other-access-imgs">
+                            <img src="img/icons/ic_google.png"/>
+                            <img src="img/icons/ic_facebook.png"/>
+                            <img src="img/icons/ic_apple.png"/>
+                        </div>
+                        
+                    </div>
+                </div>
+                <button type="submit">Cadastro</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
