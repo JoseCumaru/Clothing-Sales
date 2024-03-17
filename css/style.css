@@ -75,18 +75,18 @@ header .header-search .search .search-group .search-input {
 }
 header .header-search .search .search-group .search-button {
     width: 10%;
-    height: 28px;
-    background: #000000;
+    height: 50px;
+    background: transparent;
     color: #fff;
-    top: 5px;
-    right: 0;
     padding: 1px 0 0 0;
     cursor: pointer;
     outline: none;
     font-size: 14px;
-    border: 1px solid #000;
+    border: transparent;
     float: right;
 }
+
+
 header nav {
     display: flex;
     align-items: center;
