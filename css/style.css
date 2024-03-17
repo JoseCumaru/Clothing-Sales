@@ -126,9 +126,9 @@ header nav a:hover {
 .div_titles{
     position: relative; /* Define a posição como relativa */
     clear: both;
-    background-color: #ced7da;
+    background-color: #dfdfdf;
     padding: 10px;
-    margin-top: 25px;
+    margin-top: 50px;
     margin-bottom: 25px;
 }
 
@@ -162,7 +162,7 @@ header nav a:hover {
     background: #000;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: 2em;
     transform: translateY(-50%);
   }
 
@@ -269,16 +269,16 @@ header nav a:hover {
     background-color: #000000;
     color: #fff;
     background-position: center;
-    padding-top: 10;
-    padding-bottom: 10;
-    border-radius: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 1em;
     
 }
 
 
 .secao section h2 {
     font-family: Arial, sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     margin-top: 20%;
     text-align: center;
     animation: alternate;
@@ -333,7 +333,7 @@ section:hover h2{
     text-align: left;
     margin: 10px;
     color: #ccc;
-    margin-top: 1;
+    margin-top: 5px;
     margin-bottom: 1px;
     text-decoration: none;
 }
@@ -353,6 +353,7 @@ section:hover .languages{
 
 /* Secao de Habilidades */
 .marcas{
+    margin-top: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
