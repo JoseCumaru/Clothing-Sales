@@ -4,10 +4,11 @@ body {
     padding: 0;
 }
 main{
-    background-color: #FFFFFF;
+    background-color: #4b4646;
     background-image: url('../img/bg/bg_login5.png');
     background-repeat: no-repeat;
     background-size: 100%;
+    
 }
 
 
@@ -25,6 +26,10 @@ header h1 {
     color: #000000;
     font-family: Arial, sans-serif;
     font-size: 24px;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
 }
 
 
