@@ -31,7 +31,7 @@ async function getRoupasFemininasAdulto() {
         roupaDiv.innerHTML = `
             <img src="${doc.data().img} alt="Imagem da Roupa">
             <h3>${doc.data().nome}</h3>
-            <p>Valor: ${doc.data().valor}</p>
+            <p>R$: ${doc.data().valor}</p>
             <!-- Adicione mais campos conforme necessário -->
             `;
 
@@ -63,7 +63,7 @@ async function getRoupasFemininasAdulto() {
         roupaDiv.innerHTML = `
             <img src="${doc.data().img} alt="Imagem da Roupa">
             <h3>${doc.data().nome}</h3>
-            <p>Valor: ${doc.data().valor}</p>
+            <p>R$: ${doc.data().valor}</p>
             <!-- Adicione mais campos conforme necessário -->
             `;
 
@@ -91,7 +91,7 @@ async function getRoupasMasculinosAdulto() {
       roupaDiv.innerHTML = `
           <img src="${doc.data().img} alt="Imagem da Roupa">
           <h3>${doc.data().nome}</h3>
-          <p>Valor: ${doc.data().valor}</p>
+          <p>R$: ${doc.data().valor}</p>
           <!-- Adicione mais campos conforme necessário -->
           `;
 
