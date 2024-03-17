@@ -6,9 +6,6 @@
 }
 main{
     background-color: #fff;
-    background-image: url('../img/bg/bg_login5.png');
-    background-repeat: no-repeat;
-    background-size: 100%;
     margin-top: 10px;
     width: 90%;
 }
