@@ -12,7 +12,6 @@ body {
 /* Estilo do cabeçalho */
 header {
     background-color: #3eecad;
-    color: white;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -31,11 +30,13 @@ header h1 {
 header .header-search {
     padding-top: 0px;
     margin-top: -3px;
+    color: #fff;
 }
 header .header-search .search {
     width: 312px;
     position: relative;
     z-index: 13;
+    color: #fff;
 }
 header .header-search .search .search-group {
     border: none;
@@ -43,26 +44,27 @@ header .header-search .search .search-group {
     width: 100%;
     height: 28px;
     background-color: transparent;
+    color: #fff;
 }
 header .header-search .search .search-group .search-input {
     width: 90%;
     height: 28px;
     font-size: 12px;
     padding: 0 32px 0px 5px;
-    border-width: 1px;
-    border-color: #cccccc;
-    border-style: solid;
-    background-color: #f6f6f6;
     float: right;
     outline: none;
     -webkit-appearance: none;
     appearance: none;
-    border-radius: 0;
+    border-radius: 2em;
+    padding-left: 10px;
+    border: none;
     -webkit-transition: width 0.2s ease;
     -moz-transition: width 0.2s ease;
     -o-transition: width 0.2s ease;
     transition: width 0.2s ease;
     float: left;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
 }
 header .header-search .search .search-group .search-button {
     width: 10%;
@@ -160,7 +162,7 @@ input[type="password"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: .5em;
 }
 
 button {
@@ -169,6 +171,7 @@ button {
     margin-top: 15px;
     background-color: #3eecad;
     color: black;
+    font-size: 15px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
