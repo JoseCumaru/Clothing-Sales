@@ -1,24 +1,21 @@
-/* Estilo geral do site */
 * {
-    box-sizing: border-box;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     text-decoration: none;
 }
-body{
-    width: 100%;
-    height: 100%;
-}
-
 main{
-    background-color: #ffffff;
+    background-color: #fff;
     background-image: url('../img/bg/bg_login5.png');
     background-repeat: no-repeat;
     background-size: 100%;
+    margin-top: 10px;
+    width: 90%;
 }
 
 /* Estilo do cabeçalho */
 header {
+    width: 100%;
     background-color: rgba(250,250,250,255);
     display: flex;
     flex-direction: row;
@@ -118,9 +115,6 @@ header nav a:hover {
     width: 75%;
 }
 
-main{
-    width: 100%;
-}
 
 /* Estilo do conteúdo principal */
 .content {
@@ -150,7 +144,7 @@ main{
 .container {
     width: 100%;
     backdrop-filter: blur(32px);
-    border-radius: 18px;
+    border-radius: 2em;
   }
 
 .slider-wrapper {
@@ -260,7 +254,6 @@ main{
   /*Slider*/
 .secao {
     width: 100%;
-    height: 170px;
     margin: 20px auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
