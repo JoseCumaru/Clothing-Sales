@@ -180,11 +180,11 @@ button {
     width: 100%;
     padding: 10px;
     margin-top: 15px;
-    background-color: #3eecad;
-    color: black;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
     font-size: 15px;
     border: none;
-    border-radius: 3px;
+    border-radius: .5em;
     cursor: pointer;
 }
 button:hover {
