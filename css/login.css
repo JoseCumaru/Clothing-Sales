@@ -161,8 +161,9 @@ input[type="text"],
 input[type="password"] {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #070707;
     border-radius: .5em;
+    
 }
 
 button {
