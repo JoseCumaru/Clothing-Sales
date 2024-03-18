@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+main{
+    background-color: #fff;
+    background-image: url('../img/bg/bg_login5.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+/* Estilo do cabeçalho */
+header {
+    background-color: rgba(250,250,250,255);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    color: #000000;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
+
+/*formulário*/
+.cadastro-container {
+    width: 300px;
+    margin: 100px auto;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group1 {
+    margin-top: 15px;
+}
+
+.register-class {
+    display: flex;
+    flex-direction: row;
+}
+
+.register-class h3{
+    font-size: smaller;
+    padding-left: 4px;
+}
+.other-access{
+    display: flex;
+    flex-direction: column;
+}
+#other-access-imgs{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+}
+
+#other-access-imgs img {
+    width: 25;
+    text-decoration: none;
+    margin: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    align-self: center;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: .5em;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    border: none;
+    border-radius: .5em;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #33d79b;
+}
+
+/* Estilo responsivo para telas menores que 768px */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
