@@ -144,11 +144,6 @@ header nav a:hover {
     border-radius: 2em;
   }
 
-container-footer{
-    width: 90%;
-    backdrop-filter: blur(32px);
-    border-radius: 2em;
-  }
 
 .slider-wrapper {
     position: relative;
