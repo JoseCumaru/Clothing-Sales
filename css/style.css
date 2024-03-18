@@ -458,6 +458,48 @@ footer p {
     font-size: 14px;
 }
 
+.barra-icones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.barra-icones .row-icones {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.barra-icones .row-icones img{
+    margin-top: 10px;
+    width: 30px;
+}
+.footer-middle {
+    background: var(--bg-footer-dark-color);
+    padding: 40px 0;
+}
+
+.footer-middle .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.footer-middle .container .central-de-ajuda{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 250px;
+}
+
+.item-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
 
 /* Estilo responsivo para telas menores que 768px */
 @media (max-width: 768px) {
