@@ -144,6 +144,12 @@ header nav a:hover {
     border-radius: 2em;
   }
 
+container-footer{
+    width: 90%;
+    backdrop-filter: blur(32px);
+    border-radius: 2em;
+  }
+
 .slider-wrapper {
     position: relative;
   }
@@ -475,6 +481,7 @@ footer p {
 .footer-middle {
     background: var(--bg-footer-dark-color);
     padding: 40px 0;
+    margin: 50px;
 }
 
 .footer-middle .container {
@@ -498,6 +505,10 @@ footer p {
     display: flex;
     flex-direction: column;
     margin-top: 10px;
+}
+
+.item-list p{
+    float: left;
 }
 
 
