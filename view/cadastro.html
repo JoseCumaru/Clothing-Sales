@@ -3,63 +3,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="#"> <!-- Aqui você pode linkar seu arquivo CSS para estilizar a página -->
+    <link rel="stylesheet" href="../css/login.css"> <!-- Aqui você pode linkar seu arquivo CSS para estilizar a página -->
 </head>
 <body>
 
     <header>
         <a href="index.html"><h1>Eternal Sunshine</h1></a>
         <div class="header-search" bis_skinchecked="1">
-            <form class="search" method="get" action="/catalog/">
-                <div class="search-group" >
-                    <input id="input-search" type="search" autocomplete="off" class="search-input search-suggestion-input" placeholder="O que você procura?">
-                <button class="search-button" type="submit" onclick="">
-                    <img id="imgBusca" src="img/icons/ic_google.png">
-                </button>
-                </div>
-                
-            </form>
         </div>
-        <nav>
-            <a href="https://google.com"><img src="img/icons/ic_cupom.png"></a>
-            <a href="https://google.com"><img src="img/icons/ic_sacola.png"></a>
-            <a href="login.html"><img src="img/icons/ic_account.png?"></a>
-        </nav>
     </header>
 
     <main>
-        <div class="cadastro-container">
+        <div class="login-container">
             <h2>Login</h2>
-            <form action="processa_cadastro.php" method="POST"> <!-- Aqui você define o action para o script que irá processar o login -->
+            <form action="processa_login.php" method="POST"> <!-- Aqui você define o action para o script que irá processar o login -->
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required>
                 </div>
                 <div class="form-group">
-                    <label for="username">Email</label>
-                    <input type="text" id="username" name="email" required>
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" name="endereco" required>
+                </div>
+                <div class="form-group">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" name="cpf" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" id="telefone" name="telefone" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required>
                 </div>
                 <div class="form-group">
-                    <label for="password">Confirm your Password</label>
-                    <input type="password" id="password" name="password" required>
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
                 </div>
     
                 <div class="form-group">
-                    <div class="other-access">
-                        <label for="username">----------   ou   ----------</label>
-                        <div id="other-access-imgs">
-                            <img src="img/icons/ic_google.png"/>
-                            <img src="img/icons/ic_facebook.png"/>
-                            <img src="img/icons/ic_apple.png"/>
-                        </div>
-                        
+                    <div class="register-class">
+                        <h3>Já tem uma conta? </h3><a href="login.html"><h3> Fazer Login</h3></a>
                     </div>
+                    
                 </div>
-                <button type="submit">Cadastro</button>
+          
+                <button type="submit">Cadastrar</button>
             </form>
         </div>
     </main>
