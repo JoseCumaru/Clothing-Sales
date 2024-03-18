@@ -1,0 +1,44 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro_produto</title>
+    <link rel="stylesheet" href="./css/cadastro_produto.css"> 
+<body>
+    <header>
+        <a href="index.html"><h1>Eternal Sunshine</h1></a>
+        <div class="header-search" bis_skinchecked="1">
+            <form class="search" method="get" action="/catalog/">
+                </div>
+                
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <div class="cadastro-container">
+            <h2>Cadastro Produto</h2>
+            <form action="processa_cadastro.php" method="POST">
+                <div class="form-group1">
+                    <label for="username">Nome do Produto</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group1">
+                    <label for="username">Preço</label>
+                    <input type="text" id="preco" name="preco" required>
+                </div>
+                <div class="form-group1">
+                    <label for="password">Descrição</label>
+                    <input type="text" id="descricao" name="descricao" required>
+                </div>
+                <div class="form-group1">
+                    <label for="password">Quantidade no estoque</label>
+                    <input type="number" id="estoque" name="estoque" required>
+                </div>
+    
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
