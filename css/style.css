@@ -519,7 +519,7 @@ footer {
     align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
 }
 footer .footer-middle {
     display: flex;
@@ -527,7 +527,6 @@ footer .footer-middle {
 
 footer .item-list{
     margin-top: 0px;
-    width: 200px;
     position: relative;
     z-index: 10;
 }
