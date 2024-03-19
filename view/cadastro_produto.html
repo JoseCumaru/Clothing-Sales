@@ -45,8 +45,8 @@
                 <div class="form-group1">
                     <label for="category">Categoria</label>
                     <select id="category" name="category">
-                        <option value="Feminina">Feminino</option>
-                        <option value="Maculina">Masculino</option>
+                        <option value="Feminina">Feminina</option>
+                        <option value="Maculina">Masculina</option>
                       </select>
                 </div>
     
@@ -92,7 +92,7 @@
         try {
             // Faz o upload da imagem para o Storage
             const storageRef = firebase.storage().ref();
-            const imagemRef = storageRef.child(`Roupas/${categoria}/${imagem.name}`);
+            const imagemRef = storageRef.child(`Roupas/${categoria}/Adulto/${imagem.name}`);
             await imagemRef.put(imagem);
 
             // Obtém a URL da imagem no Storage
