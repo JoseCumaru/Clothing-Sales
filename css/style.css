@@ -548,11 +548,11 @@ footer li{
 footer li:hover{
     color: #ddd;
 }
-footer p{
-    justify-content: center;
-    align-items: center;
-    
-
+.rodape-direitos{
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 0px;
+    text-align: center;
 }
 /* Estilo responsivo para telas menores que 768px */
 @media (max-width: 768px) {
