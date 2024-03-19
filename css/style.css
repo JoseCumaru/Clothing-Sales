@@ -518,6 +518,7 @@ footer {
     height: 250px;
     align-items: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 footer .footer-middle {
