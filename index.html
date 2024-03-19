@@ -13,6 +13,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
     <script src="script.js"></script>
 
     <title>Eternal Sunshine</title>
@@ -179,6 +180,37 @@
                 // Referência ao Firestore
                 const db = firebase.firestore();
 
+                // Função para adicionar um produto ao carrinho do usuário
+                async function adicionarAoCarrinho(produtoId) {
+                    // Verificar se o usuário está autenticado
+                    const user = firebase.auth().currentUser;
+                    if (!user) {
+                        // Usuário não autenticado, redirecione-o para a página de login
+                        window.location.href = './view/login.html';
+                        return;
+                    }
+
+                    try {
+                        // Referência ao documento do usuário no Firestore
+                        const userDocRef = db.collection('usuarios').doc(user.uid);
+
+                        // Referência à coleção "carrinho" dentro do documento do usuário
+                        const carrinhoRef = userDocRef.collection('carrinho');
+
+                        // Adicionar o produto ao carrinho
+                        await carrinhoRef.add({
+                            produtoId: produtoId, // Usando o ID do produto como referência
+                            quantidade: 1, // Por padrão, adicionamos apenas 1 item ao carrinho
+                            // Outros detalhes do produto, se necessário
+                        });
+
+                        alert('Produto adicionado ao carrinho com sucesso!');
+                    } catch (error) {
+                        console.error('Erro ao adicionar produto ao carrinho:', error);
+                        alert('Erro ao adicionar produto ao carrinho. Por favor, tente novamente mais tarde.');
+                    }
+                }
+
                 // Função para recuperar produtos aleatórios
                 async function getProdutosAleatorios(categoria) {
                     const produtosRef = db.collection('Roupas').doc(categoria).collection('Adulto');
@@ -195,6 +227,7 @@
                     return produtos;
                 }
 
+
                 // Função para exibir produtos aleatórios na página principal
                 async function exibirProdutosAleatorios() {
                   
@@ -202,17 +235,9 @@
 
                     
                     const produtosFemininos = await getProdutosAleatorios('Feminino');
-
-                  
                     const produtosAleatorios = produtosMasculinos.concat(produtosFemininos);
-
-                  
                     produtosAleatorios.sort(() => Math.random() - 0.5);
-
-                  
                     const produtosContainer = document.getElementById('produtos-container');
-
-                  
                     produtosContainer.innerHTML = '';
 
                   
@@ -228,7 +253,7 @@
                             <img src="${produto.img}" alt="Imagem da roupa">
                             <h3>${produto.nome}</h3>
                             <p>Preço: ${produto.valor}</p>
-                            <button class="btn-adicionar">Adicionar ao Carrinho</button>
+                            <button class="btn-adicionar" onClick="adicionarAoCarrinho(${produto.id})">Adicionar ao Carrinho</button>
 
                             <!-- Adicionem mais informações conforme necessário -->
                         `;
@@ -237,9 +262,9 @@
                         produtosContainer.appendChild(produtoElement);
                     });
                 }
-
-               
                 exibirProdutosAleatorios();
+
+
 
              </script>
            
