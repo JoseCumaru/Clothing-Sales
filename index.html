@@ -187,27 +187,27 @@
 
                 // Função para exibir produtos aleatórios na página principal
                 async function exibirProdutosAleatorios() {
-                    // Recupera produtos aleatórios para a categoria Masculino
+                  
                     const produtosMasculinos = await getProdutosAleatorios('Masculino');
 
-                    // Recupera produtos aleatórios para a categoria Feminino
+                    
                     const produtosFemininos = await getProdutosAleatorios('Feminino');
 
-                    // Combinar produtos de ambas as categorias
+                  
                     const produtosAleatorios = produtosMasculinos.concat(produtosFemininos);
 
-                    // Embaralha os produtos aleatórios para exibição aleatória
+                  
                     produtosAleatorios.sort(() => Math.random() - 0.5);
 
-                    // Referência ao elemento do container de produtos
+                  
                     const produtosContainer = document.getElementById('produtos-container');
 
-                    // Limpa o conteúdo atual do container de produtos
+                  
                     produtosContainer.innerHTML = '';
 
-                    // Exibe os produtos na página principal
+                  
                     produtosAleatorios.forEach(produto => {
-                        // Cria um elemento para exibir o produto
+                        
                         const produtoElement = document.createElement('div');
                         produtoElement.classList.add('produto');
                         
