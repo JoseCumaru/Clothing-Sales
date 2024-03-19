@@ -446,6 +446,55 @@ section:hover .languages{
 
 
 
+/* Produtos */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    gap: 20px;
+}
+.grid-container div {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    align-items: center;
+}
+  
+.grid-container img {
+    width: 50%;
+    border-radius: 5px;
+}
+  
+.grid-container h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+  
+.item p {
+    color: #666;
+}
+  
+.valor {
+    color: #007bff;
+    font-weight: bold;
+}
+  
+.btn-adicionar {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+  
+.btn-adicionar:hover {
+    background-color: #0056b3;
+}
+
+
 /* Estilo do rodapé */
 footer {
     margin-bottom: 0;
@@ -495,7 +544,6 @@ footer p {
     flex-direction:column;
     margin-top: 10px;
 }
-
 .item-list p{
     float: left;
 }

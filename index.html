@@ -10,6 +10,12 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"
     />
     <link rel="icon" href="img/icons/vector_sol.jpg" type="image/png">
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="script.js"></script>
+
+    
     <title>Eternal Sunshine</title>
 </head>
 <body>
@@ -137,10 +143,95 @@
              <div class="div_titles">
                  <h1 align="center" class="titles">Produtos</h1>
              </div>
-             <div class="produtos">
-               
+             <div id="produtos-container" class="grid-container">
+                <div class="item">
+                    <img id="imagem-roupa-1" alt="Roupa 1">
+                    <h3>Roupa 1</h3>
+                    <p class="valor">$29.99</p>
+                    <button class="btn-adicionar">Adicionar ao Carrinho</button>
+                </div>
+                
              </div>
-     
+
+             <script>
+                const firebaseConfig = {
+                apiKey: "AIzaSyDKROCfYUdEzG8gCkjVYGfHwDHsGhvu7ZA",
+                authDomain: "clothingsales-2ace7.firebaseapp.com",
+                projectId: "clothingsales-2ace7",
+                storageBucket: "clothingsales-2ace7.appspot.com",
+                messagingSenderId: "856958563843",
+                appId: "1:856958563843:web:7758d4e8948316a5e44036"
+                };
+
+                // Inicialize o Firebase
+                firebase.initializeApp(firebaseConfig);
+
+                // Referência ao Firestore
+                const db = firebase.firestore();
+
+                // Função para recuperar produtos aleatórios
+                async function getProdutosAleatorios(categoria) {
+                    const produtosRef = db.collection('Roupas').doc(categoria).collection('Adulto');
+                    
+                    // Executa a consulta para obter produtos aleatórios
+                    const snapshot = await produtosRef.limit(3).get(); // Limita a 3 produtos para cada categoria
+                    
+                    // Converte o snapshot em uma matriz de objetos de produtos
+                    const produtos = [];
+                    snapshot.forEach(doc => {
+                        produtos.push(doc.data());
+                    });
+
+                    return produtos;
+                }
+
+                // Função para exibir produtos aleatórios na página principal
+                async function exibirProdutosAleatorios() {
+                    // Recupera produtos aleatórios para a categoria Masculino
+                    const produtosMasculinos = await getProdutosAleatorios('Masculino');
+
+                    // Recupera produtos aleatórios para a categoria Feminino
+                    const produtosFemininos = await getProdutosAleatorios('Feminino');
+
+                    // Combinar produtos de ambas as categorias
+                    const produtosAleatorios = produtosMasculinos.concat(produtosFemininos);
+
+                    // Embaralha os produtos aleatórios para exibição aleatória
+                    produtosAleatorios.sort(() => Math.random() - 0.5);
+
+                    // Referência ao elemento do container de produtos
+                    const produtosContainer = document.getElementById('produtos-container');
+
+                    // Limpa o conteúdo atual do container de produtos
+                    produtosContainer.innerHTML = '';
+
+                    // Exibe os produtos na página principal
+                    produtosAleatorios.forEach(produto => {
+                        // Cria um elemento para exibir o produto
+                        const produtoElement = document.createElement('div');
+                        produtoElement.classList.add('produto');
+                        
+
+
+                        // Adiciona informações do produto ao elemento
+                        produtoElement.innerHTML = `
+                            <img src="${produto.img}" alt="Imagem da roupa">
+                            <h3>${produto.nome}</h3>
+                            <p>Preço: ${produto.valor}</p>
+
+                            <!-- Adicionem mais informações conforme necessário -->
+                        `;
+
+                        // Adiciona o elemento do produto ao container de produtos
+                        produtosContainer.appendChild(produtoElement);
+                    });
+                }
+
+               
+                exibirProdutosAleatorios();
+
+             </script>
+           
          </main> 
          </div>
             
@@ -183,5 +274,6 @@
         <p>Eternal Sunshine todos os direitos reservados © 2024</p>
     </footer>
 </body>
+
 
 </html>

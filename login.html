@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="icon" href="img/icons/vector_sol.jpg" type="image/png">
-    <link rel="stylesheet" href="./css/login.css"> <!-- Verifique o caminho correto do seu arquivo CSS -->
-     <!-- Configurações do Firebase -->
+    <link rel="stylesheet" href="./css/login.css"> 
      <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
@@ -22,11 +21,11 @@
     <main>
         <div class="login-container">
             <h2>Login</h2>
-            <form method="POST" onsubmit="signInWithEmailAndPassword(event)"> <!-- Adicionando evento de submissão e chamando a função de login -->
+            <form method="POST" onsubmit="signInWithEmailAndPassword(event)"> 
                 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" id="email" name="email" required> <!-- Corrigindo o ID do campo de e-mail -->
+                    <input type="text" id="email" name="email" required> 
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>

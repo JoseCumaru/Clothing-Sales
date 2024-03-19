@@ -100,14 +100,10 @@ const initSlider = () => {
     sliderScrollbar.addEventListener("mouseout", () => {
         intervalId = setInterval(nextSlide, 3000);
     });*/
-}
 
     
+}
 
 window.addEventListener("resize", initSlider);
 window.addEventListener("load", initSlider);
-
-
-
-
 
