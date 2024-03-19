@@ -7,11 +7,12 @@
 main{
     background-color: #fff;
     margin-top: 10px;
-    width: 100%;
+    width: 90%;
 }
 
 /* Estilo do cabeçalho */
 header {
+    width: 100%;
     background-color: rgba(250,250,250,255);
     display: flex;
     flex-direction: row;
@@ -117,6 +118,7 @@ header nav a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
     padding-left: 10%;
     padding-right: 10%;
 }
@@ -299,7 +301,6 @@ header nav a:hover {
   }
 
 
-
   /*Slider*/
 .secao {
     width: 100%;
@@ -406,56 +407,19 @@ section:hover .languages{
 }
 
 
-/* Produtos */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(250px, 1fr));
-    gap: 20px;
-}
-.grid-container div {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-    align-items: center;
-}
-  
-.grid-container img {
-    width: 50%;
-    border-radius: 5px;
-}
-  
-.grid-container h3 {
-    margin-top: 10px;
-    font-size: 1.2rem;
-}
-  
-.item p {
-    color: #666;
-}
-  
-.valor {
-    color: #007bff;
-    font-weight: bold;
-}
-  
-.btn-adicionar {
-    background-color: #1c1e21;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 15px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-  
-.btn-adicionar:hover {
-    background-color: #000000;
-}
-
-
 /* Estilo do rodapé */
+footer {
+    margin-bottom: 0;
+    background-color: #333;
+    color: #ccc;
+    padding: 10px;
+    text-align: center;
+}
+footer p {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
 .barra-icones {
     display: flex;
     flex-direction: column;
@@ -472,20 +436,23 @@ section:hover .languages{
     margin-top: 10px;
     width: 30px;
 }
+.footer-middle {
+    background: var(--bg-footer-dark-color);
+    padding: 40px 0;
+    margin: 50px;
+}
 
-footer {
-    background-color: #333;
-    color: #ccc;
-    padding-top: 30px;
-    position: relative;
-    height: 250px;
-    align-items: center;
-    display: flex;
+.footer-middle .container {
+    display: inline-block;
     flex-direction: column;
     justify-content: space-around;
 }
-footer .footer-middle {
+
+
+.item-list {
     display: flex;
+    flex-direction:c;
+    margin-top: 10px;
 }
 
 footer .item-list{
@@ -495,29 +462,7 @@ footer .item-list{
     padding: 0px 30px 0px;
 }
 
-footer h4{
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 20px;
-}
 
-footer li{
-    font-weight: 400;
-    font-size: 16px;
-    color:rgb(117, 122, 126);
-    margin: 15px 0;
-    display: grid;
-    cursor: pointer;
-}
-footer li:hover{
-    color: #ddd;
-}
-.rodape-direitos{
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 0px;
-    text-align: center;
-}
 /* Estilo responsivo para telas menores que 768px */
 @media (max-width: 768px) {
     main {
