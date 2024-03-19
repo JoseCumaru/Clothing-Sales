@@ -63,43 +63,53 @@
         }
       });
   
-      // Função para listar os produtos no carrinho do usuário
-  function listarProdutosCarrinho(userId) {
-    const carrinhoRef = db.collection('usuarios').doc(userId).collection('carrinho');
-  
-    carrinhoRef.get().then((querySnapshot) => {
-      if (querySnapshot.empty) {
-        // O carrinho está vazio
-        //exibirCarrinhoVazio();
-      } else {
-        // O carrinho contém produtos
-        const produtosPromises = [];
-        querySnapshot.forEach((doc) => {
-          const produtoId = doc.data().produtoId;
-          const quantidade = doc.data().quantidade;
-          // Para cada produto no carrinho, obtem os detalhes do produto do banco de dados
-          const produtoPromise = db.collection('Roupas').doc('Masculino').collection('Adulto').doc(produtoId).get();
-          produtosPromises.push(produtoPromise);
-        });
-  
-        // Aguarda todas as consultas serem resolvidas
-        Promise.all(produtosPromises).then((produtosSnapshots) => {
-          const produtos = [];
-          produtosSnapshots.forEach((produtoSnapshot) => {
-            produtos.push(produtoSnapshot.data());
+    
+    // Função para listar os produtos no carrinho do usuário
+    function listarProdutosCarrinho(userId) {
+      const carrinhoRef = db.collection('usuarios').doc(userId).collection('carrinho');
+
+      carrinhoRef.get().then((querySnapshot) => {
+        if (querySnapshot.empty) {
+          // O carrinho está vazio
+          exibirCarrinhoVazio();
+        } else {
+          // O carrinho contém produtos
+          const produtosPromises = [];
+          querySnapshot.forEach((doc) => {
+            const produtoId = doc.data().produtoId;
+            const quantidade = doc.data().quantidade;
+            // Para cada produto no carrinho, obtem os detalhes do produto do banco de dados
+            const produtoPromiseMasculino = db.collection('Roupas').doc('Masculino').collection('Adulto').doc(produtoId).get();
+            const produtoPromiseFeminino = db.collection('Roupas').doc('Feminino').collection('Adulto').doc(produtoId).get();
+
+            produtosPromises.push(produtoPromiseMasculino);
+            produtosPromises.push(produtoPromiseFeminino);
           });
-          // Exibe os produtos na página
-          exibirProdutosNoCarrinho(produtos);
-        }).catch((error) => {
-          console.error('Erro ao obter detalhes dos produtos:', error);
-       
-        });
-      }
-    }).catch((error) => {
-      console.error('Erro ao obter produtos do carrinho:', error);
-      
-    });
-  }
+
+          // Aguarde todas as consultas serem resolvidas
+          Promise.all(produtosPromises).then((produtosSnapshots) => {
+            const produtos = [];
+            produtosSnapshots.forEach((produtoSnapshot) => {
+              if (produtoSnapshot.exists) { // Verifica se o documento existe
+                produtos.push(produtoSnapshot.data());
+              } else {
+                console.error('Erro ao obter detalhes dos produtos:', 'Documento não encontrado');
+              }
+            });
+            // Exiba os produtos na página
+            exibirProdutosNoCarrinho(produtos);
+          }).catch((error) => {
+            console.error('Erro ao obter detalhes dos produtos:', error);
+            // Trate o erro conforme necessário
+          });
+        }
+      }).catch((error) => {
+        console.error('Erro ao obter produtos do carrinho:', error);
+        // Trate o erro conforme necessário
+      });
+    }
+
+
   
   // Função para exibir os produtos no carrinho na página
   function exibirProdutosNoCarrinho(produtos) {
@@ -110,22 +120,27 @@
   
     // Itera sobre os produtos e os exibe na página
     produtos.forEach((produto) => {
-      const produtoHTML = `
-        <div class="product-list">
-          <div class="product-item">
-            <img src="${produto.img}" alt="${produto.img}">
-            <div class="product-info">
-              <h2>${produto.nome}</h2>
-              <p>Preço: ${produto.valor}</p>
-              <!-- Adicione mais informações do produto conforme necessário -->
+        const produtoHTML = `
+          <div class="product-list">
+            <div class="product-item">
+              <img src="${produto.img}" alt="${produto.img}">
+              <div class="product-info">
+                <h2>${produto.nome}</h2>
+                <p>Preço: ${produto.valor}</p>
+                <div class="product-controls">
+                  <button class="quantity-btn" onclick="diminuirQuantidade('${produto.id}')">-</button>
+                  <span class="quantity">1</span>
+                  <button class="quantity-btn" onclick="aumentarQuantidade('${produto.id}')">+</button>
+                  <button class="remove-btn" onclick="removerDoCarrinho('${produto.id}')">Remover</button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      `;
-      // Adiciona o HTML do produto ao container
-      container.innerHTML += produtoHTML;
-    });
-  }
+        `;
+        container.innerHTML += produtoHTML;
+      });
+    }
+    
   
     </script>
   </body>
