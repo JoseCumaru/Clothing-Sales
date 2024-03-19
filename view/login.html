@@ -82,6 +82,7 @@
                 .then((userCredential) => {
                     // Sucesso no login
                     const user = userCredential.user;
+                    alert("Usuário logado!");
                     console.log('Usuário logado:', user);
                     
                     // Redirecionar para a página inicial
@@ -91,6 +92,7 @@
                     // Trata erros de login
                     const errorCode = error.code;
                     const errorMessage = error.message;
+                    alert("Erro no login");
                     console.error('Erro no login:', errorMessage);
                 });
         }

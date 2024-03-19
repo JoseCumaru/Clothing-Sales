@@ -443,7 +443,7 @@ section:hover .languages{
 }
   
 .btn-adicionar {
-    background-color: #007bff;
+    background-color: #1c1e21;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -453,7 +453,7 @@ section:hover .languages{
 }
   
 .btn-adicionar:hover {
-    background-color: #0056b3;
+    background-color: #000000;
 }
 
 
