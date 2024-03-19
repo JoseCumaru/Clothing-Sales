@@ -494,21 +494,6 @@ section:hover .languages{
 
 
 /* Estilo do rodapé */
-footer {
-    background-color: #333;
-    color: #ccc;
-    padding-top: 30px;
-    position: relative;
-    height: 250px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
-footer p {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-}
-
 .barra-icones {
     display: flex;
     flex-direction: column;
@@ -524,29 +509,35 @@ footer p {
     margin-top: 10px;
     width: 30px;
 }
-.footer-middle {
-    background: var(--bg-footer-dark-color);
-    padding: 40px 0;
-    margin: 50px;
+
+footer {
+    background-color: #333;
+    color: #ccc;
+    padding-top: 30px;
+    position: relative;
+    height: 250px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+footer .footer-middle {
+    display: flex;
 }
 
-.footer-middle .container {
-    display: inline-block;
-    flex-direction: column;
-    align-items: center;
-    max-width: 1240px;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-}
-
-.item-list {
+footer .item-list{
     margin-top: 0px;
     width: 200px;
     position: relative;
-    display: flex;
+    z-index: 10;
 }
-.item-list li{
+
+footer h4{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+footer li{
     font-weight: 400;
     font-size: 16px;
     color:rgb(117, 122, 126);
@@ -554,7 +545,15 @@ footer p {
     display: grid;
     cursor: pointer;
 }
+footer li:hover{
+    color: #ddd;
+}
+footer p{
+    justify-content: center;
+    align-items: center;
+    
 
+}
 /* Estilo responsivo para telas menores que 768px */
 @media (max-width: 768px) {
     main {
