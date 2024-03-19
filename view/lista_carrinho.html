@@ -96,26 +96,26 @@
                 console.error('Erro ao obter detalhes dos produtos:', 'Documento não encontrado');
               }
             });
-            // Exiba os produtos na página
+            // Exibe os produtos na página
             exibirProdutosNoCarrinho(produtos);
           }).catch((error) => {
             console.error('Erro ao obter detalhes dos produtos:', error);
-            // Trate o erro conforme necessário
+            
           });
         }
       }).catch((error) => {
         console.error('Erro ao obter produtos do carrinho:', error);
-        // Trate o erro conforme necessário
+   
       });
     }
 
 
   
   // Função para exibir os produtos no carrinho na página
-  function exibirProdutosNoCarrinho(produtos) {
+    function exibirProdutosNoCarrinho(produtos) {
     const container = document.querySelector('.container');
   
-    // Limpa o conteúdo atual do container
+  
     container.innerHTML = '';
   
     // Itera sobre os produtos e os exibe na página
