@@ -529,6 +529,7 @@ footer .item-list{
     margin-top: 0px;
     position: relative;
     z-index: 10;
+    padding: 0px 30px 0px;
 }
 
 footer h4{
