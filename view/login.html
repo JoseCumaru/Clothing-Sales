@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="icon" href="../img/icons/vector_sol.jpg" type="image/png">
-    <link rel="stylesheet" href="../css/login.css"> <!-- Verifique o caminho correto do seu arquivo CSS -->
-     <!-- Configurações do Firebase -->
+    <link rel="icon" href="img/icons/vector_sol.jpg" type="image/png">
+    <link rel="stylesheet" href="../css/login.css"> 
      <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
@@ -89,7 +88,7 @@
                     window.location.href = "index.html";
                 })
                 .catch((error) => {
-                    // Tratar erros de login
+                    // Trata erros de login
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     console.error('Erro no login:', errorMessage);

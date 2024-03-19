@@ -250,7 +250,6 @@ header nav a:hover {
   /*Slider*/
 .secao {
     width: 100%;
-    margin: 20px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
@@ -349,98 +348,6 @@ section:hover .languages{
     height: 100%;
 }
 
-
-
-/* Secao de Habilidades */
-.marcas{
-    margin-top: 50px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 20px auto;
-}
-
-.marcas img{
-    width: 32px;
-}
-
-.habilities_lang{
-   
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
-}
-
-.habilities_bd{ 
-    border-left:#333;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
-}
-
-.habilities_amb{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
-}
-
-.habilities_card{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    width: 185.34px;
-    flex-basis: 50%;
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
-
-.habilities_card img:hover{
-    border-image: 5px;
-    border: #3fd77c;
-}
-
-
-
-/* Secao de contato */
-.contact{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-.contact_card{
-    background-color: #1c1e21;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 5px;
-    margin-left: 60px;
-    margin-right: 60px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.contact_card img{
-    padding: 8px;
-}
-.contact_card p{
-    color: #ccc;
-}
-
-#img_email{
-    border: #333;
-    margin-left: 10px;
-    width: 50px;
-}
-#img_whatsapp{
-    border: #333;
-    margin-left: 10px;
-    width: 50px;
-}
 
 
 
