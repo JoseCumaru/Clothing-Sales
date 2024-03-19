@@ -1,10 +1,13 @@
-body {
+* {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    align-items: center;
+    text-align: center;
 }
 .page-title{
-  font-size: 24px;
+  font-size: 35px;
+  margin-bottom: 0px;
 }
 /* Estilo do cabeçalho*/
 header {
@@ -23,9 +26,29 @@ header h1 {
     font-size: 24px;
     text-decoration: none;
 }
+h3{
+  font-size: 20px;
+}
+p{
+  font-size: 15px;
+  background-color: #fff;
+  margin-left: 40%;
+  margin-right: 40%;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
 
-a {
+a{
+  text-decoration: none;
+}
+
+#voltar{
     text-decoration: none;
+    background-color: #000000;
+    border-radius: .5em;
+    padding: 15px;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
 }
 .container {
   max-width: 1240px;
@@ -34,6 +57,10 @@ a {
 }
 div{
   display: block;
-  display: block;
   align-items: center;
+}
+
+main{
+  margin-top: 90px;
+  width: 100%;
 }
