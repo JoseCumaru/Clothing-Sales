@@ -82,22 +82,22 @@
           produtosPromises.push(produtoPromise);
         });
   
-        // Aguarde todas as consultas serem resolvidas
+        // Aguarda todas as consultas serem resolvidas
         Promise.all(produtosPromises).then((produtosSnapshots) => {
           const produtos = [];
           produtosSnapshots.forEach((produtoSnapshot) => {
             produtos.push(produtoSnapshot.data());
           });
-          // Exiba os produtos na página
+          // Exibe os produtos na página
           exibirProdutosNoCarrinho(produtos);
         }).catch((error) => {
           console.error('Erro ao obter detalhes dos produtos:', error);
-          // Trate o erro conforme necessário
+       
         });
       }
     }).catch((error) => {
       console.error('Erro ao obter produtos do carrinho:', error);
-      // Trate o erro conforme necessário
+      
     });
   }
   
