@@ -262,18 +262,22 @@ header nav a:hover {
     }
 }
 
+
+/*Secao*/
 .secao section {
-    height: 100%;
+    height: 200px;
     background-color: #000000;
     color: #fff;
     background-position: center;
     padding-top: 10px;
     padding-bottom: 10px;
-    border-radius: 1em;
+    border-radius: 8px;
     
 }
 
-
+.secao a{
+    height: 100%;
+}
 .secao section h2 {
     font-family: Arial, sans-serif;
     font-size: 20px;
@@ -406,11 +410,12 @@ section:hover .languages{
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 62px;
 }
 .barra-icones .row-icones {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 30px;
 }
 .barra-icones .row-icones img{
     margin-top: 10px;
