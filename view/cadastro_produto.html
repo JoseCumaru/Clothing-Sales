@@ -70,25 +70,24 @@
     const db = firebase.firestore();
         
     async function cadastrarProduto(event) {
-        event.preventDefault(); // Impede o envio padrão do formulário
+        event.preventDefault(); 
 
-        // Recupera os valores do formulário
+       
         const nome = document.getElementById('name').value;
         const preco = document.getElementById('price').value;
         const descricao = document.getElementById('description').value;
         const quantidade = parseInt(document.getElementById('quantity').value);
-        let categoria = document.getElementById('category').value; // Recupera o valor da categoria
+        let categoria = document.getElementById('category').value; 
 
-        // Verifica se a categoria está em itálico
         const categoryElement = document.getElementById('category');
         if (categoryElement.selectedIndex >= 0) {
-            categoria = categoryElement.options[categoryElement.selectedIndex].textContent; // Recupera o texto do item selecionado
+            categoria = categoryElement.options[categoryElement.selectedIndex].textContent; 
         }
 
-        const imagem = document.getElementById('image').files[0]; // Recupera o arquivo de imagem selecionado
+        const imagem = document.getElementById('image').files[0]; 
 
         // Referência à coleção de produtos no Firestore com base na categoria selecionada
-        const produtosRef = db.collection('Roupas').doc(categoria).collection('Adulto'); // Exemplo com 'Roupas', ajuste conforme sua estrutura de coleções
+        const produtosRef = db.collection('Roupas').doc(categoria).collection('Adulto'); 
 
         try {
             // Faz o upload da imagem para o Storage
@@ -99,7 +98,6 @@
             // Obtém a URL da imagem no Storage
             const imagemURL = await imagemRef.getDownloadURL();
 
-            // Adiciona um novo documento com um ID automático gerado pelo Firestore
             await produtosRef.add({
                 nome: nome,
                 preco: preco,
