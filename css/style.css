@@ -7,7 +7,7 @@
 main{
     background-color: #fff;
     margin-top: 10px;
-    width: 90%;
+    width: 100%;
 }
 
 /* Estilo do cabeçalho */
@@ -118,7 +118,6 @@ header nav a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
     padding-left: 10%;
     padding-right: 10%;
 }
