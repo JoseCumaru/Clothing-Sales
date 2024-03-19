@@ -45,8 +45,8 @@
                 <div class="form-group1">
                     <label for="category">Categoria</label>
                     <select id="category" name="category">
-                        <option value="Feminina">Feminina</option>
-                        <option value="Maculina">Masculina</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Maculino">Masculino</option>
                       </select>
                 </div>
     
@@ -70,59 +70,69 @@
     const db = firebase.firestore();
         
     async function cadastrarProduto(event) {
-        event.preventDefault(); 
+    event.preventDefault();
 
-       
-        const nome = document.getElementById('name').value;
-        const preco = document.getElementById('price').value;
-        const descricao = document.getElementById('description').value;
-        const quantidade = parseInt(document.getElementById('quantity').value);
-        let categoria = document.getElementById('category').value; 
+    const nome = document.getElementById('name').value;
+    const preco = document.getElementById('price').value;
+    const descricao = document.getElementById('description').value;
+    const quantidade = parseInt(document.getElementById('quantity').value);
+    let categoria = document.getElementById('category').value; 
 
-        const categoryElement = document.getElementById('category');
-        if (categoryElement.selectedIndex >= 0) {
-            categoria = categoryElement.options[categoryElement.selectedIndex].textContent; 
-        }
-
-        const imagem = document.getElementById('image').files[0]; 
-
-        // Referência à coleção de produtos no Firestore com base na categoria selecionada
-        const produtosRef = db.collection('Roupas').doc(categoria).collection('Adulto'); 
-
-        try {
-            // Faz o upload da imagem para o Storage
-            const storageRef = firebase.storage().ref();
-            const imagemRef = storageRef.child(`Roupas/${categoria}/Adulto/${imagem.name}`);
-            await imagemRef.put(imagem);
-
-            // Obtém a URL da imagem no Storage
-            const imagemURL = await imagemRef.getDownloadURL();
-
-            await produtosRef.add({
-                nome: nome,
-                valor: preco,
-                descricao: descricao,
-                quantidade: quantidade,
-                categoria: categoria,
-                img: imagemURL
-            });
-
-            console.log("Produto cadastrado com sucesso!");
-            alert("Produto cadastrado com sucesso!");
-            // Limpar o formulário após o cadastro
-            document.getElementById('name').value = '';
-            document.getElementById('price').value = '';
-            document.getElementById('description').value = '';
-            document.getElementById('quantity').value = '';
-            document.getElementById('category').selectedIndex = 0;
-            document.getElementById('image').value = '';
-        } catch (error) {
-            console.error("Erro ao cadastrar produto: ", error);
-            alert("Erro ao cadastrar produto. Por favor, tente novamente.");
-        }
+    const categoryElement = document.getElementById('category');
+    if (categoryElement.selectedIndex >= 0) {
+        categoria = categoryElement.options[categoryElement.selectedIndex].textContent; 
     }
-    // Adiciona um ouvinte de eventos para o formulário de cadastro de produto
-    document.querySelector('form').addEventListener('submit', cadastrarProduto);
+
+    const imagem = document.getElementById('image').files[0];
+
+    // Referência à coleção de produtos no Firestore com base na categoria selecionada
+    const produtosRef = db.collection('Roupas').doc(categoria).collection('Adulto');
+
+    try {
+        // Faz o upload da imagem para o Storage
+        const storageRef = firebase.storage().ref();
+        const imagemRef = storageRef.child(`Roupas/${categoria}/Adulto/${imagem.name}`);
+        await imagemRef.put(imagem);
+
+        // Obtém a URL da imagem no Storage
+        const imagemURL = await imagemRef.getDownloadURL();
+
+        // Adiciona o produto à coleção 'produtos' e obtém o ID gerado
+        const docRef = await produtosRef.add({
+            nome: nome,
+            valor: preco,
+            descricao: descricao,
+            quantidade: quantidade,
+            categoria: categoria,
+            img: imagemURL
+        });
+
+        // Obter o ID gerado pelo Firestore
+        const novoId = docRef.id;
+
+        // Atualizar o documento do produto com o ID gerado
+        await docRef.update({
+            id: novoId
+        });
+
+        console.log("Produto cadastrado com sucesso!");
+        alert("Produto cadastrado com sucesso!");
+        // Limpar o formulário após o cadastro
+        document.getElementById('name').value = '';
+        document.getElementById('price').value = '';
+        document.getElementById('description').value = '';
+        document.getElementById('quantity').value = '';
+        document.getElementById('category').selectedIndex = 0;
+        document.getElementById('image').value = '';
+    } catch (error) {
+        console.error("Erro ao cadastrar produto: ", error);
+        alert("Erro ao cadastrar produto. Por favor, tente novamente.");
+    }
+}
+
+// Adiciona um ouvinte de eventos para o formulário de cadastro de produto
+document.querySelector('form').addEventListener('submit', cadastrarProduto);
+
 
 
     </script>
