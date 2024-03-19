@@ -15,7 +15,6 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
-    <script src="script.js"></script>
 
     <title>Eternal Sunshine</title>
 </head>
@@ -37,7 +36,7 @@
             <nav>
                 <a href="./view/pagamento.html"><img src="img/icons/ic_cupom.png"></a>
                 <a href="./view/lista_carrinho.html"><img src="img/icons/ic_sacola.png"></a>
-                <a href="./view/login.html"><img src="img/icons/ic_account.png?"></a>
+                <a href="./view/login.html"><img src="img/icons/ic_account.png?"><p id="name-user">Nome</p></a>
             </nav>
         </div>
         
@@ -176,10 +175,12 @@
 
                 // Inicialize o Firebase
                 firebase.initializeApp(firebaseConfig);
+              
                 firebase.auth().onAuthStateChanged(function(user) {
                 if (user) {
                     // O usuário está autenticado.
                     console.log("Usuário está logado:", user);
+                    setUserName();
                     // Você pode redirecionar o usuário para outra página, por exemplo:
                     // window.location.href = "pagina_logada.html";
                 } else {
@@ -192,37 +193,65 @@
 
                 // Referência ao Firestore
                 const db = firebase.firestore();
+                
 
                 async function adicionarAoCarrinho(produtoId) {
+                    // Verificar se o usuário está autenticado
+                    const user = firebase.auth().currentUser;
+                    if (!user) {
+                        window.location.href = './view/login.html';
+                        return;
+                    }
 
-                // Verificar se o usuário está autenticado
-                const user = firebase.auth().currentUser;
-                if (!user) {
-                    window.location.href = './view/login.html';
-                    return;
+                    try {
+                        // Referência ao documento do usuário no Firestore
+                        const userDocRef = db.collection('usuarios').doc(user.uid);
+
+                        // Referência à coleção "carrinho" dentro do documento do usuário
+                        const carrinhoRef = userDocRef.collection('carrinho');
+
+                        // Adicionar o produto ao carrinho
+                        await carrinhoRef.add({
+                            produtoId: produtoId, // Usando o ID do produto como referência
+                            quantidade: 1, // Por padrão, adicionamos apenas 1 item ao carrinho
+                            
+                        });
+
+                        alert('Produto adicionado ao carrinho com sucesso!');
+                
+                        console.error('id do produto:', produtoId);
+                    } catch (error) {
+                        console.error('Erro ao adicionar produto ao carrinho:', error);
+                        alert('Erro ao adicionar produto ao carrinho. Por favor, tente novamente mais tarde.');
+                    }
                 }
 
-                try {
-                    // Referência ao documento do usuário no Firestore
-                    const userDocRef = db.collection('usuarios').doc(user.uid);
+                function setUserName() {
+                    // Verifica se o usuário está autenticado
+                    const user = firebase.auth().currentUser;
 
-                    // Referência à coleção "carrinho" dentro do documento do usuário
-                    const carrinhoRef = userDocRef.collection('carrinho');
+                    if (user) {
+                        // Referência ao documento do usuário no Firestore
+                        const usuariosRef = db.collection('usuarios').doc(user.uid);
 
-                    // Adicionar o produto ao carrinho
-                    await carrinhoRef.add({
-                        produtoId: produtoId, // Usando o ID do produto como referência
-                        quantidade: 1, // Por padrão, adicionamos apenas 1 item ao carrinho
-                        
-                    });
-
-                    alert('Produto adicionado ao carrinho com sucesso!');
-                    console.error('id do produto:', produtoId);
-                } catch (error) {
-                    console.error('Erro ao adicionar produto ao carrinho:', error);
-                    alert('Erro ao adicionar produto ao carrinho. Por favor, tente novamente mais tarde.');
+                        // Obtém os dados do usuário do Firestore
+                        usuariosRef.get().then(doc => {
+                            if (doc.exists) {
+                                // Define o nome de usuário na interface do usuário
+                                const name_user = document.getElementById('name-user');
+                                name_user.textContent = doc.data().username;
+                                console.log("nome do usuario:", doc.data().username);
+                            } else {
+                                console.log('Documento do usuário não encontrado.');
+                            }
+                        }).catch(error => {
+                            console.log('Erro ao obter dados do usuário:', error);
+                        });
+                    }
                 }
-            }
+
+
+
 
 
                 // Função para recuperar produtos aleatórios

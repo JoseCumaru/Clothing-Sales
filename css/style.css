@@ -94,6 +94,7 @@ header nav {
 header nav a {
   color: rgb(0, 0, 0);
   text-decoration: none;
+  text-align: center;
   margin: 10px;
 }
 
@@ -102,7 +103,9 @@ header nav img {
   text-decoration: none;
   margin: 10px;
 }
-
+header nav a p{
+  font-size: smaller;
+}
 header nav a:hover {
   color: #ccc;
 }
