@@ -2,15 +2,9 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    align-items: center;
-    justify-content: center;
-    
 }
 .page-title{
   font-size: 24px;
-  align-items: center;
-  justify-content: center;
-
 }
 /* Estilo do cabeçalho*/
 header {
@@ -29,11 +23,17 @@ header h1 {
     font-size: 24px;
     text-decoration: none;
 }
-a{
+
+a {
     text-decoration: none;
 }
-.container{
+.container {
   max-width: 1240px;
   margin-left: auto;
   margin-right: auto;
+}
+div{
+  display: block;
+  display: block;
+  align-items: center;
 }
