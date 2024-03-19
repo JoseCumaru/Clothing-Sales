@@ -9,7 +9,6 @@ main{
     
 }
 
-
 /* Estilo do cabeçalho */
 header {
     background-color: rgba(250,250,250,255);
@@ -30,7 +29,6 @@ header h1 {
 a{
     text-decoration: none;
 }
-
 
 /* CSS Busca */
 header .header-search {
@@ -91,7 +89,6 @@ header .header-search .search .search-group .search-button {
     width: 75%;
 }
 
-
 header nav {
     display: flex;
     align-items: center;
@@ -113,8 +110,6 @@ header nav a:hover {
     color: #ccc;
 }
 
-
-
 /* Estilo do conteúdo principal */
 .content {
     display: flex;
@@ -133,10 +128,6 @@ header nav a:hover {
 .titles{
     color: #000000;
 }
-
-
-
-
 
 /* Estilo dos itens */
 .grid-container {
