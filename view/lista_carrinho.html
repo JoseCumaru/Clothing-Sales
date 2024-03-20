@@ -15,9 +15,13 @@
 
 <body>
     <header>
-        <a href="../index.html"><h1>Eternal Sunshine</h1></a>
-        <div class="header-search" bis_skinchecked="1">
-        </div>
+      <h1><a href="../index.html"><h1>Eternal Sunshine</h1></a></h1>
+      <div class="header-search" bis_skinchecked="1">
+      </div>
+      <nav>
+          <a href="lista_carrinho.html"><img src="../img/icons/ic_sacola.png"></a>
+          <a><img src="../img/icons/ic_account.png" id="openModalBtn"><p id="name-user"></p></a>
+      </nav>
     </header>
     <main>
       <h1 class="page-title">Seu Carrinho</h1>
@@ -34,121 +38,29 @@
               <a href="../index.html" id="voltar">Voltar as compras</a>
           </div>
         </section>  
+        
       </div>
-    </main>
-    
-
-    <script>
-    
-      const firebaseConfig = {
-        apiKey: "AIzaSyDKROCfYUdEzG8gCkjVYGfHwDHsGhvu7ZA",
-        authDomain: "clothingsales-2ace7.firebaseapp.com",
-        projectId: "clothingsales-2ace7",
-        storageBucket: "clothingsales-2ace7.appspot.com",
-        messagingSenderId: "856958563843",
-        appId: "1:856958563843:web:7758d4e8948316a5e44036"
-      };
-  
-      firebase.initializeApp(firebaseConfig);
-  
-      const db = firebase.firestore();
-  
-      // Verifica se o usuário está autenticado
-      firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-          listarProdutosCarrinho(user.uid);
-        } else {
-          window.location.href = './view/login.html';
-        }
-      });
-  
-    
-    // Função para listar os produtos no carrinho do usuário
-    function listarProdutosCarrinho(userId) {
-      const carrinhoRef = db.collection('usuarios').doc(userId).collection('carrinho');
-
-      carrinhoRef.get().then((querySnapshot) => {
-        if (querySnapshot.empty) {
-          // O carrinho está vazio
-          exibirCarrinhoVazio();
-        } else {
-          // O carrinho contém produtos
-          const produtosPromises = [];
-          querySnapshot.forEach((doc) => {
-            const produtoId = doc.data().produtoId;
-            const quantidade = doc.data().quantidade;
-            // Para cada produto no carrinho, obtem os detalhes do produto do banco de dados
-            const produtoPromiseMasculino = db.collection('Roupas').doc('Masculino').collection('Adulto').doc(produtoId).get();
-            const produtoPromiseFeminino = db.collection('Roupas').doc('Feminino').collection('Adulto').doc(produtoId).get();
-
-            produtosPromises.push(produtoPromiseMasculino);
-            produtosPromises.push(produtoPromiseFeminino);
-          });
-
-          // Aguarde todas as consultas serem resolvidas
-          Promise.all(produtosPromises).then((produtosSnapshots) => {
-            const produtos = [];
-            produtosSnapshots.forEach((produtoSnapshot) => {
-              if (produtoSnapshot.exists) { // Verifica se o documento existe
-                produtos.push(produtoSnapshot.data());
-              } else {
-                console.error('Erro ao obter detalhes dos produtos:', 'Documento não encontrado');
-              }
-            });
-            // Exibe os produtos na página
-            exibirProdutosNoCarrinho(produtos);
-          }).catch((error) => {
-            console.error('Erro ao obter detalhes dos produtos:', error);
-            
-          });
-        }
-      }).catch((error) => {
-        console.error('Erro ao obter produtos do carrinho:', error);
-   
-      });
-    }
-
-
-  
-  // Função para exibir os produtos no carrinho na página
-    function exibirProdutosNoCarrinho(produtos) {
-    const container = document.querySelector('.container');
-  
-  
-    container.innerHTML = '';
-  
-    // Itera sobre os produtos e os exibe na página
-    produtos.forEach((produto) => {
-        const produtoHTML = `
-          <div class="product-list">
-            <div class="product-item">
-              <img src="${produto.img}" alt="${produto.img}">
-              <div class="product-info">
-                <h2>${produto.nome}</h2>
-                <p>Preço: ${produto.valor}</p>
-                <div class="product-controls">
-                  <button class="quantity-btn" onclick="diminuirQuantidade('${produto.id}')">-</button>
-                  <span class="quantity">1</span>
-                  <button class="quantity-btn" onclick="aumentarQuantidade('${produto.id}')">+</button>
-                  <button class="remove-btn" onclick="removerDoCarrinho('${produto.id}')">Remover</button>
-                </div>
-              </div>
-            </div>
+      <div class="box-extern">
+        <div class="box" id="box-products">
+          <header>Resumo da compra</header>
+          <div class="info">
+            <div><span>Sub-total</span><span>R$ 00</span></div>
+            <div><span>Frete</span><span>Gratuito</span></div>
           </div>
-        `;
-        container.innerHTML += produtoHTML;
-      });
-    }
-    </script>
 
-<div class="barra-icones">
-  <div class="row-icones">
-      <a href=""><img src="./img/icons/ic_apple.png"/></a>
-      <a href=""><img src="./img/icons/facebook_black.png"/></a>
-      <a href=""><img src="./img/icons/instagram_black.png"/></a>
-      <a href=""><img src="./img/icons/ic_apple.png"/></a>
-  </div>
-</div>
+          <footer>
+              <span>Total</span>
+              <span>R$ 00</span>
+            </footer>
+         </div>
+         <button id="btn-finalizar">Finalizar Compra</button>
+      </div>
+      
+    
+    </main>
+
+    <script src="../script/lista_carrinho.js"></script>
+
 
 <footer>
   <div class="footer-middle">

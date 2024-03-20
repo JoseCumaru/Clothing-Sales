@@ -95,5 +95,9 @@ produtos.forEach((produto) => {
       </div>
     `;
     container.innerHTML += produtoHTML;
+    const classBox = document.getElementById('box-products');
+    classBox.style.display = 'block';
+    const btn_finalizar = document.getElementById('btn-finalizar');
+    btn_finalizar.style.display = 'block';
   });
 }
