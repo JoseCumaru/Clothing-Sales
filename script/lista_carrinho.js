@@ -72,7 +72,6 @@ function listarProdutosCarrinho(userId) {
 function exibirProdutosNoCarrinho(produtos) {
 const container = document.querySelector('.container');
 
-
 container.innerHTML = '';
 
 // Itera sobre os produtos e os exibe na página
@@ -95,9 +94,22 @@ produtos.forEach((produto) => {
       </div>
     `;
     container.innerHTML += produtoHTML;
+
+    // Calcula o total do carrinho
+    const precoProdutos = document.querySelectorAll('.product-price');
+    let total = 0;
+    precoProdutos.forEach(preco => {
+        total += parseFloat(preco.textContent.replace('Preço: R$ ', '').replace(',', '.'));
+    });
+
+    // Atualiza o total na página
+    const totalElement = document.querySelector('#box-products footer span:last-child');
+    totalElement.textContent = `R$ ${total.toFixed(2)}`;
+
     const classBox = document.getElementById('box-products');
     classBox.style.display = 'block';
     const btn_finalizar = document.getElementById('btn-finalizar');
     btn_finalizar.style.display = 'block';
+   
   });
 }
