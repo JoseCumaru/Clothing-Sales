@@ -115,6 +115,71 @@ header nav a:hover {
 }
 
 
+/* Estilos para o conteúdo do modal */
+/* Estilos para o conteúdo do modal */
+.modal {
+  display: none; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 999; 
+}
+
+.modal-content {
+  width: 80px;
+  height: 128;
+  float: inline-end; /* Ajuste a largura conforme necessário */
+  background-color: #fff;
+  padding: 12px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+.modal-content ul {
+  margin-top: 8px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-content ul li {
+  margin-bottom: 10px;
+}
+
+.modal-content ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.modal-content ul li a:hover {
+  color: #555;
+}
+
+
+
+/* Estilos para o botão de fechar o modal */
+.close {
+  color: #aaa; 
+  float: right; 
+  font-size: 12px; 
+  font-weight: bold; 
+}
+
+.close:hover,
+.close:focus {
+  color: black; 
+  text-decoration: none; 
+  cursor: pointer; 
+}
+
+
+
 /* Estilo do conteúdo principal */
 .content {
   display: flex;
