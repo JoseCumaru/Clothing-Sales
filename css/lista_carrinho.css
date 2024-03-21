@@ -177,7 +177,6 @@ main {
 /* Botão de finalizar compra */
 #btn-finalizar {
   display: none;
-  width: 40%;
   padding: 15px;
   background-color: #28a745;
   color: #fff;
