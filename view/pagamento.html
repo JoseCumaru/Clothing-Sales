@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagamento</title>
+    <link rel="stylesheet" href="../css/pagamento.css"> 
     <link rel="icon" href="img/icons/EternalSunshine.png" type="image/png">
 </head>
 <body>
@@ -13,27 +14,26 @@
         </div>
     </header>
     <h1>Finalizar compra</h1>
+    <div class="compra-container">
     <form action="url_para_enviar_dados_do_formulario" method="post">
         <fieldset>
             <h2>Endereço para entrega</h2>
-            <div class="input-duplo">
-                <div>
+                <div class="form-group">
                     <label for="nome">Nome: <span>*</span></label>
                     <input type="text" name="nome" id="nome" required>
                 </div>
-                <div>
+
+                <div class="form-group>
                     <label for="sobrenome">Sobrenome: <span>*</span></label>
                     <input type="text" name="sobrenome" id="sobrenome" required>
                 </div>
-            </div>
-            <div class="input-simples">
-                <div>
+
+                <div class="form-group>
                     <label for="endereco">Endereço: <span>*</span></label>
                     <input type="text" name="endereco" id="endereco" required>
                 </div>
-            </div>
-            <div class="input-duplo">
-                <div>
+
+                <div class="form-group>
                     <label for="cep">CEP: <span>*</span></label>
                     <input type="text" name="cep" id="cep" required>
                 </div>
@@ -61,7 +61,6 @@
                             <option value="timor-leste">Timor-Leste</option>
                         </select>
                     </div>-->
-                </div>
             </div>
             <h2>Opção de envio</h2>
             <div class="radio">
@@ -75,6 +74,8 @@
             <button type="submit">proxima etapa</button>
         </fieldset>
     </form>
+</div>
+</main>
 
 </body>
 </html>

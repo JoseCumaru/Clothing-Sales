@@ -1,87 +1,84 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-fieldset {
-    border: 0;
+    font-family: Arial, sans-serif;
+    margin: 0;
     padding: 0;
 }
-
-fieldset > div {
-    margin-bottom: 24px;
+main{
+    background-color: #fff;
+    background-image: url('../img/bg/bg_login5.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
-label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-label span {
-    color: red;
-}
-
-input, select {
-    border: 2px solid grey;
-    border-radius: 4px;
-    padding: 10px;
-    width: 200px;
-}
-
-select {
-    background: transparent;
-    box-shadow: none;
-    color: #666;
-    -webkit-appearance: none;
-    width: 100%;
-}
-
-.select-wrapper {
-    position: relative;
-    width: 222px;
-}
-
-.select-wrapper::after {
-    content: '< >';
-    color: #666;
-    font-size: 18px;
-    top: 8px;
-    right: 0;
-    transform: rotate(90deg);
-    position: absolute;
-    z-index: -1;
-}
-
-.input-simples input {
-    width: 439px;
-}
-
-.input-duplo {
+/* Estilo do cabeçalho */
+header {
+    background-color: rgba(250,250,250,255);
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
-.input-duplo > div {
-    margin-right: 15px;
+header h1 {
+    color: #000000;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
 }
 
-input:valid {
-    border: 2px solid green;
+
+/*formulário*/
+.compra-container {
+    width: 50%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
-input:invalid {
-    border: 2px solid red;
+h2 {
+    text-align: center;
+    color: #333;
 }
 
-.radio input {
-    float: left;
-    margin-right: 10px;
-    width: auto;
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+select {
+    width: 95%;
+    padding: 10px;
+    margin-top: 1opx;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: .5em;
 }
 
 button {
-    background: green;
-    border: 0;
-    color: white;
-    width: 224px;
+    width: 100%;
     padding: 10px;
-    text-transform: uppercase;
+    margin-top: 15px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    border: none;
+    border-radius: .5em;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #33d79b;
+}
+
+
+
+/* Estilo responsivo para telas menores que 768px */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
