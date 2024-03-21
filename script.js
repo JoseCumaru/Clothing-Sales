@@ -70,9 +70,13 @@ function setUserName() {
         // Obtém os dados do usuário do Firestore
         usuariosRef.get().then(doc => {
             if (doc.exists) {
-                const name_user = document.getElementById('name-user');
-                name_user.textContent = doc.data().username;
-                console.log("nome do usuario:", doc.data().username);
+                const username = doc.data().username;
+                const firstLetter = username.charAt(0).toUpperCase(); // Obtém a primeira letra do nome e converte para maiúscula
+                const imageModal = document.getElementById('openModalBtn');
+                imageModal.style.display = 'none';
+                const userImage = document.getElementById('user-image');
+                userImage.style.display = 'grid';
+                userImage.textContent = firstLetter; // Define o conteúdo da div como a primeira letra do nome do usuário
             } else {
                 console.log('Documento do usuário não encontrado.');
             }
@@ -82,12 +86,13 @@ function setUserName() {
     }
 }
 
+
 // Função para recuperar produtos aleatórios
 async function getProdutosAleatorios(categoria) {
     const produtosRef = db.collection('Roupas').doc(categoria).collection('Adulto');
     
     
-    const snapshot = await produtosRef.limit(3).get(); // Limita a 3 produtos para cada categoria
+    const snapshot = await produtosRef.limit(4).get(); // Limita a 3 produtos para cada categoria
     
     // Converte o snapshot em uma matriz de objetos de produtos
     const produtos = [];

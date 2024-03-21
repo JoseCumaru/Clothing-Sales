@@ -70,46 +70,95 @@ function listarProdutosCarrinho(userId) {
 
 // Função para exibir os produtos no carrinho na página
 function exibirProdutosNoCarrinho(produtos) {
-const container = document.querySelector('.container');
+  const container = document.querySelector('.container');
+  let total = 0;
+  container.innerHTML = '';
 
-container.innerHTML = '';
-
-// Itera sobre os produtos e os exibe na página
-produtos.forEach((produto) => {
-    const produtoHTML = `
-      <div class="product-list">
-        <div class="product-item">
-          <img src="${produto.img}" alt="${produto.img}">
-          <div class="product-info">
-            <h2>${produto.nome}</h2>
-            <p>Preço: ${produto.valor}</p>
-            <div class="product-controls">
-              <button class="quantity-btn" onclick="diminuirQuantidade('${produto.id}')">-</button>
-              <span class="quantity">1</span>
-              <button class="quantity-btn" onclick="aumentarQuantidade('${produto.id}')">+</button>
-              <button class="remove-btn" onclick="removerDoCarrinho('${produto.id}')">Remover</button>
+  // Itera sobre os produtos e os exibe na página
+  produtos.forEach((produto) => {
+      const produtoHTML = `
+        <div class="product-list">
+          <div class="product-item">
+            <img src="${produto.img}" alt="${produto.img}">
+            <div class="product-info">
+              <h2>${produto.nome}</h2>
+              <p>Preço: ${produto.valor}</p>
+              <div class="product-controls">
+                <button class="quantity-btn" onclick="diminuirQuantidade(${produto.id})">-</button>
+                <span class="quantity">1</span>
+                <button class="quantity-btn" onclick="aumentarQuantidade(${produto.id})">+</button>
+                <button class="remove-btn" onclick="removerDoCarrinho('${produto.id}')">Remover</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    `;
-    container.innerHTML += produtoHTML;
-
-    // Calcula o total do carrinho
-    const precoProdutos = document.querySelectorAll('.product-price');
-    let total = 0;
-    precoProdutos.forEach(preco => {
-        total += parseFloat(preco.textContent.replace('Preço: R$ ', '').replace(',', '.'));
+      `;
+      container.innerHTML += produtoHTML;
+  
+      total += parseFloat(produto.valor);
+      
     });
-
     // Atualiza o total na página
-    const totalElement = document.querySelector('#box-products footer span:last-child');
-    totalElement.textContent = `R$ ${total.toFixed(2)}`;
+      const totalElement = document.getElementById('total');
+      totalElement.textContent = `R$ ${total.toFixed(2)}`;
 
-    const classBox = document.getElementById('box-products');
-    classBox.style.display = 'block';
-    const btn_finalizar = document.getElementById('btn-finalizar');
-    btn_finalizar.style.display = 'block';
-   
+      const classBox = document.getElementById('box-products');
+      classBox.style.display = 'block';
+      const btn_finalizar = document.getElementById('btn-finalizar');
+      btn_finalizar.style.display = 'block';
+}
+
+
+// Função para aumentar a quantidade de um produto no carrinho
+function aumentarQuantidade(produtoId) {
+  const userId = firebase.auth().currentUser.uid;
+  const carrinhoRef = db.collection('usuarios').doc(userId).collection('carrinho');
+
+
+  const produtoDocRef = carrinhoRef.doc(produtoId);
+
+ 
+  produtoDocRef.update({
+    quantidade: firebase.firestore.FieldValue.increment(1)
+  }).then(() => {
+    listarProdutosCarrinho(userId);
+  }).catch((error) => {
+    console.error('Erro ao aumentar quantidade do produto:', error);
   });
+}
+
+
+// Função para diminuir a quantidade de um produto no carrinho
+function diminuirQuantidade(produtoId) {
+  const userId = firebase.auth().currentUser.uid; 
+  const carrinhoRef = db.collection('usuarios').doc(userId).collection('carrinho');
+ 
+  const produtoDocRef = carrinhoRef.doc(produtoId);
+
+ 
+  produtoDocRef.update({
+    quantidade: firebase.firestore.FieldValue.increment(-1)
+  }).then(() => {
+    listarProdutosCarrinho(userId);
+  }).catch((error) => {
+    console.error('Erro ao diminuir quantidade do produto:', error);
+  });
+}
+
+
+// Função para remover um produto do carrinho no Firestore e atualizar a página
+function removerDoCarrinho(produtoId) {
+  const userId = firebase.auth().currentUser.uid;
+  const carrinhoRef = db.collection('usuarios').doc(userId).collection('carrinho');
+
+  carrinhoRef.where('produtoId', '==', produtoId).get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        doc.ref.delete(); 
+      });
+      listarProdutosCarrinho(userId);
+    })
+    .catch((error) => {
+      console.error('Erro ao remover produto do carrinho:', error);
+    });
 }
