@@ -12,12 +12,12 @@ firebase.initializeApp(firebaseConfig);
 
 // Referência ao Firestore
 const db = firebase.firestore();
-const docSnap = await getDoc(docRef);
+const docSnap =  getDoc(docRef);
 
 
-async function mostrarDadosUsuaria(userId) {
+function mostrarDadosUsuaria(userId) {
     const userRef = db.collection('usuarios').doc(userId);
-    const docSnap = await getDoc(userRef);
+    const docSnap = getDoc(userRef);
     if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
       } else {
