@@ -43,7 +43,6 @@ header .header-search .search .search-group .search-button {
   float: right;
 }
 
-
 header nav {
   display: flex;
   align-items: center;
@@ -76,7 +75,6 @@ header nav a:hover {
   height: 30px;
   border-radius: 50%;
   align-content: center;
-
 }
 
 #imgBusca{
@@ -266,7 +264,6 @@ header nav a:hover {
 #imgBusca{
   width: 75%;
 }
-
 
 /* Estilos para o conteúdo do modal */
 /* Estilos para o conteúdo do modal */
