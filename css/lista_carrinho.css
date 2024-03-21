@@ -53,8 +53,6 @@ header nav a:hover {
   color: #ccc;
 }
 
-
-
 /* Estilo principal */
 main {
   padding: 20px;
@@ -167,8 +165,6 @@ main {
   background-color: #f7f7f7;
   border: 1px solid #dee2e6;
 }
-
-
 
 .box header,
 .box footer {
