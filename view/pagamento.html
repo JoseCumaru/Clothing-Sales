@@ -72,23 +72,34 @@
                 <input type="radio" name="opcao-envio" id="expresso" value="expresso">
                 <label for="expresso">Expresso</label>
             </div>
-            <button type="submit">proxima etapa</button>
+            <h2>Forma de pagamento</h2>
+            <div class="container-modal">
+                <img id="myIgm" src="" alt="" style="width: 100%; max-width: 300px">
+                <div id="myModal" class="modal">
+                    <div class="image"><img src="../img/icons/PIX.jpg"></div>
+                    <div class="image"><img src="../img/icons/bandeiras-de-cartao-de-credito.jpg"></div>
+                </div>
+            </div>
+            <!-- <div class="popup-image">
+                <span>&times;</span>
+                <img src="../img/icons/PIX.jp" alt="">
+            </div>
+            <script>
+                document.querySelectorAll('.container-modal img').forEach(Image =>{
+                    image.onclick = () =>{
+                        document.querySelector('.popup-image').style.display = "block";
+                        document.querySelector('.popup-image img').src = image.getAttribute('src');
+                    }
+                });
+                document.querySelector('.popup-image span').onclick = () =>{
+                    document.querySelector('.popup-image').style.display = "none";
+                }
+            </script> -->
+            <button type="submit">Finalizar</button>
+        </div>
         </fieldset>
     </form>
-<<<<<<< Updated upstream
-</div>
+  
 </main>
-=======
-    <br>
-    <div class="container-modal">
-        <img id="myIgm" src="" alt="" style="width: 100%; max-width: 300px">
-        <div id="myModal" class="modal">
-            <div class="image"><img src="../"></div>
-            <span class="close"times></span>
-
-        </div>
-    </div>
->>>>>>> Stashed changes
-
 </body>
 </html>
