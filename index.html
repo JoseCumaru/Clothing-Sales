@@ -42,7 +42,7 @@
             <nav>
                 <a href="./view/lista_carrinho.html"><img src="img/icons/ic_sacola.png"></a>
                 <div id="user-image"></div>
-                <a><img src="img/icons/ic_account.png?" id="openModalBtn"></a>
+                <a><img src="img/icons/ic_account.png?" href="./view/login.html" id="image-user"></a>
             </nav>
         </div>
     </header>
@@ -81,7 +81,7 @@
         </div>
     </div>
     <script>// Exibe o modal
-        const openModalBtn = document.getElementById('openModalBtn');
+        const openModalBtn = document.getElementById('user-image');
         const modal = document.getElementById('myModal');
         openModalBtn.addEventListener('click', function() {
             modal.style.display = 'block'; 
@@ -107,7 +107,6 @@
                             <img class="image-item" src="img/banners/banner1.png" alt="img-1" />
                             <img class="image-item" src="img/banners/banner2.jpg" alt="img-2" />
                             <img class="image-item" src="img/banners/banner3.png" alt="img-3" />
-
                         </ul>
 
                         <button id="next-slide" class="slide-button material-symbols-rounded">

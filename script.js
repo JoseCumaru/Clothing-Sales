@@ -72,7 +72,7 @@ function setUserName() {
             if (doc.exists) {
                 const username = doc.data().username;
                 const firstLetter = username.charAt(0).toUpperCase(); // Obtém a primeira letra do nome e converte para maiúscula
-                const imageModal = document.getElementById('openModalBtn');
+                const imageModal = document.getElementById('image-user');
                 imageModal.style.display = 'none';
                 const userImage = document.getElementById('user-image');
                 userImage.style.display = 'grid';
