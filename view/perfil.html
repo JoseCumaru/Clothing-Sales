@@ -1,0 +1,63 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/icons/EternalSunshine.png" type="image/png">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../css/login.css"> 
+    
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+
+    <header>
+        <a href="../index.html"><h1>Eternal Sunshine</h1></a>
+        <div class="header-search" bis_skinchecked="1">
+        </div>
+    </header>
+
+    <main>
+        <div class="login-container">
+            <h2>Editar Perfil</h2>
+            <form method="POST" onsubmit="registerUser(event)"> 
+                <div class="form-group">
+                    <label for="username">Nome</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" name="endereco" required>
+                </div>
+                <div class="form-group">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" name="cpf" required>
+                </div>
+                <div class="form-group">
+                    <label for="tel">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Senha</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+          
+                <button type="submit">Salvar Dados</button>
+            </form>
+        </div>
+    </main>
+
+     <script src="../script/cadastro.js"></script>
+    
+</body>
+
+</html>
