@@ -74,11 +74,62 @@ button:hover {
     background-color: #33d79b;
 }
 
-
-
 /* Estilo responsivo para telas menores que 768px */
 @media (max-width: 768px) {
     main {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+.container-modal{
+    position: relative;
+    min-height: 100vh;
+}
+
+.container-modal .modal{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 10px;
+
+}
+.container-modal .modal .img{
+    height: 250px;
+    width: 350px;
+    border: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.container-modal .modal .image img{
+    height: 100px;
+    width: 150px;
+    object-fit: cover;
+    transition: .2s linear;
+}
+/* .container-modal .popup-image{
+    position: fixed;
+    top: 0; left: 0;
+    background: rgba(0, 0, 0, .9);
+    z-index: 100;
+    display: none;
+}
+.container-modal .popup-image span{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 60px;
+    font-weight: bolder;
+    color: #fff;
+    cursor: pointer;
+    z-index: 100;
+}
+.container-modal .popup-image img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid #fff;
+    border-radius: 5px;
+    object-fit: cover;
+} */
