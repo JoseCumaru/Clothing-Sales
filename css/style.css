@@ -71,10 +71,13 @@ header nav a:hover {
 #user-image{
   display: none;
   background-color: #007bff;
+  color: white;
   width: 30px;
   height: 30px;
+  border: solid 1px #4e4e4e;
   border-radius: 50%;
   align-content: center;
+  cursor: pointer;
 }
 
 #imgBusca{
@@ -280,7 +283,7 @@ header nav a:hover {
 
 .modal-content {
   width: 100px;
-  height: 162;
+  height: 182;
   float: inline-end; /* Ajuste a largura conforme necessário */
   background-color: #fff;
   padding: 12px;
@@ -293,7 +296,7 @@ header nav a:hover {
 .modal-content ul {
   margin-top: 8px;
   list-style-type: none;
-  padding: 0;
+  padding: 50;
   margin: 0;
 }
 
@@ -304,7 +307,7 @@ header nav a:hover {
 
 .modal-content ul li a {
   text-decoration: none;
-  color: #333;
+  color: black;
   font-size: 16px;
 }
 

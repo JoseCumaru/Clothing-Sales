@@ -70,7 +70,7 @@ function setUserName() {
         // Obtém os dados do usuário do Firestore
         usuariosRef.get().then(doc => {
             if (doc.exists) {
-                const username = doc.data().username;
+                const username = doc.data().nome;
                 const firstLetter = username.charAt(0).toUpperCase(); // Obtém a primeira letra do nome e converte para maiúscula
                 const imageModal = document.getElementById('image-user');
                 imageModal.style.display = 'none';

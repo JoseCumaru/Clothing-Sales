@@ -10,51 +10,58 @@ const firebaseConfig = {
 // Inicialize o Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Referência ao Firestore
+// Obtenha uma referência para o Firestore
 const db = firebase.firestore();
-const docSnap =  getDoc(docRef);
 
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        // O usuário está autenticado
+        console.log("Usuário está autenticado:", user);
 
-function mostrarDadosUsuaria(userId) {
-    const userRef = db.collection('usuarios').doc(userId);
-    const docSnap = getDoc(userRef);
-    if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
-      } else {
-        // docSnap.data() will be undefined in this case
-        console.log("No such document!");
-      }
-      
+        // Preenche os campos do formulário com os dados do usuário
+        document.getElementById('email').value = user.email || '';
+        
+        // Recupera outros dados do usuário do Firestore (se disponível)
+        const userDocRef = firebase.firestore().collection('usuarios').doc(user.uid);
+        userDocRef.get().then(doc => {
+            if (doc.exists) {
+                const data = doc.data();
+                document.getElementById('username').value = data.nome || '';
+                document.getElementById('endereco').value = data.endereco || '';
+                document.getElementById('cpf').value = data.cpf || '';
+                document.getElementById('telefone').value = data.telefone || '';
+            }
+        }).catch(error => {
+            console.error('Erro ao recuperar dados do usuário:', error);
+        });
+
+    } else {
+        // O usuário não está autenticado
+        console.log("Usuário não está autenticado.");
+    }
+});
+
+function updateUserProfile(event) {
+    event.preventDefault();
+
+    const user = firebase.auth().currentUser;
+    if (user) {
+        const userDocRef = firebase.firestore().collection('usuarios').doc(user.uid);
+        const formData = new FormData(event.target);
+
+        // Atualize os dados do usuário no Firestore
+        userDocRef.update({
+            nome: formData.get('nome'),
+            endereco: formData.get('endereco'),
+            cpf: formData.get('cpf'),
+            telefone: formData.get('telefone')
+        }).then(() => {
+            console.log('Dados do usuário atualizados com sucesso.');
+            window.location.href = '../index.html';
+        }).catch(error => {
+            console.error('Erro ao atualizar dados do usuário:', error);
+        });
+    } else {
+        console.log('Usuário não autenticado.');
+    }
 }
-
-//3
-
-class usuarios {
-    constructor (username, email, endereco, cpf, telefone) {
-        this.username = username;
-        this.email = email;
-        this.endereco = endereco;
-        this.cpf = cpf;
-        this.telefone = telefone;
-    }
-    toString() {
-        return this.username + ', ' + this.email + ', ' + this.endereco + ', ' + this.cpf + ', ' + this.telefone;
-    }
-}
-
-// Firestore data converter
-const usuariosConvertido = {
-    toFirestore: (usuarios) => {
-        return {
-            username: usuarios.username,
-            email: usuarios.email,
-            endereco: usuarios.endereco,
-            cpf: usuarios.cpf,
-            telefone: usuarios.telefone
-            };
-    },
-    fromFirestore: (snapshot, options) => {
-        const data = snapshot.data(options);
-        return new usuarios(data.username, data.email, data.endereco, data.cpf, data.telefone);
-    }
-};

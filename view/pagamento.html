@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="../css/pagamento.css"> 
     <link rel="icon" href="img/icons/EternalSunshine.png" type="image/png">
     <link rel="stylessheet" href="../css/pagamento.css">
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+    <script src="../script/pagamento.js"></script>
 </head>
 <body>
     <header>
@@ -16,7 +21,7 @@
     </header>
     <h1>Finalizar compra</h1>
     <div class="compra-container">
-    <form action="url_para_enviar_dados_do_formulario" method="post">
+    <form action="../index.html" method="post">
         <fieldset>
             <h2>Endereço para entrega</h2>
                 <div class="form-group">
@@ -51,17 +56,17 @@
                             <option value="timor-leste">Rio de Janeiro</option>
                         </select>
                     </div>
-                    <!--<label for="pais">Cidade</label>
+                    <label for="cidade">Cidade</label>
                     <div class="select-wrapper">
-                        <select name="pais" id="pais">
-                            <option value="angola">Angola</option>
-                            <option value="angola">Alemanha</option>
-                            <option value="angola">A</option>
-                            <option value="brasil">Brasil</option>
-                            <option value="portugal">Portugal</option>
-                            <option value="timor-leste">Timor-Leste</option>
+                        <select name="cidade" id="cidade">
+                            <option value="Itacoatiara">Itacoatiara</option>
+                            <option value="Manaus">Manaus</option>
+                            <option value="Tefé">Tefé</option>
+                            <option value="Parintins">Parintins</option>
+                            <option value="Maués">Maués</option>
+                            <option value="Coari">Coari</option>
                         </select>
-                    </div>-->
+                    </div>
             </div>
             <h2>Opção de envio</h2>
             <div class="radio">
@@ -76,25 +81,40 @@
             <div class="container-modal">
                 <img id="myIgm" src="" alt="" style="width: 100%; max-width: 300px">
                 <div id="myModal" class="modal">
-                    <div class="image"><img src="../img/icons/PIX.jpg"></div>
-                    <div class="image"><img src="../img/icons/bandeiras-de-cartao-de-credito.jpg"></div>
+
+                    <div class="image">
+                        <input type="radio" name="opcao-pag" id="pix" value="pix">
+                        <label for="pix">Pix</label>
+                        <img src="../img/icons/PIX.jpg">
+                    </div>
+                    <div class="image">
+                        <input type="radio" name="opcao-pag" id="cartao" value="cartao">
+                        <label for="cartao">Cartao</label>
+                        <img src="../img/icons/bandeiras-de-cartao-de-credito.jpg"></div>
                 </div>
             </div>
-            <!-- <div class="popup-image">
-                <span>&times;</span>
-                <img src="../img/icons/PIX.jp" alt="">
+
+            <div class="pagamento">
+                <img id="pix-img" src="../img/pag/qrcode.jpg" style="display: none;">
+
+                <div id="cartao-img" style="display: none;">
+                    <h2>Cartões</h2>
+                    <div class="radio">
+                        <input type="radio" name="cartao-radio" id="cartao-radio" value="cartao-radio">
+                        <label for="cartao-radio">Bradesco</label>
+                        <label for="cartao-radio">Final: 0000</label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" name="cartao-radio" id="cartao-radio" value="cartao-radio">
+                        <label for="cartao-radio">Banco do Brasil</label>
+                        <label for="cartao-radio">Final: 0000</label>
+                    </div>
+                    <button >Adicionar Cartão</button>
+                </div>
+            
+
             </div>
-            <script>
-                document.querySelectorAll('.container-modal img').forEach(Image =>{
-                    image.onclick = () =>{
-                        document.querySelector('.popup-image').style.display = "block";
-                        document.querySelector('.popup-image img').src = image.getAttribute('src');
-                    }
-                });
-                document.querySelector('.popup-image span').onclick = () =>{
-                    document.querySelector('.popup-image').style.display = "none";
-                }
-            </script> -->
+           
             <button type="submit">Finalizar</button>
         </div>
         </fieldset>

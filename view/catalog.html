@@ -10,6 +10,8 @@
     <!-- Inclua os scripts do Firebase diretamente no HTML -->
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+    
 </head>
 <body>
     <header>
@@ -19,16 +21,57 @@
                 <div class="search-group" >
                     <input id="input-search" type="search" autocomplete="off" class="search-input search-suggestion-input" placeholder="O que você procura?">
                 <button class="search-button" type="submit" onclick="">
+                    <img id="imgBusca" src="../img/icons/procurar.png">
+                    </button>
                 </button>
                 </div>
                 
             </form>
         </div>
-        <nav>
-            <a href="lista_carrinho.html"><img src="../img/icons/ic_sacola.png"></a>
-            <a><img src="../img/icons/ic_account.png" id="openModalBtn"><p id="name-user"></p></a>
-        </nav>
+        <div class="header-nav-class">
+            <nav>
+                <a href="lista_carrinho.html"><img src="../img/icons/ic_sacola.png"></a>
+                <div id="user-image"></div>
+                <a href="./view/login.html"><img src="../img/icons/ic_account.png?" href="login.html" id="image-user"></a>
+            </nav>
+        </div>
     </header>
+    <nav class="main-navbar">
+        <div class="container">
+            <!-- menu -->
+            <ul class="main-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="women.html">Women</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="shoes.html">Shoes</a>
+                </li>
+         
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <ul>
+                <li><a href="./view/perfil.html">Perfil</a></li>
+                <li><a href="#" id="btnSignOut" onclick="signOut()"></a></li>
+            </ul>
+        </div>
+    </div>
+    <script>// Exibe o modal
+        const openModalBtn = document.getElementById('user-image');
+        const modal = document.getElementById('myModal');
+        openModalBtn.addEventListener('click', function() {
+            modal.style.display = 'block'; 
+        });// Oculta o modal
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none'; 
+            }
+        });
+    </script>
     
     <div class="content">
         <main>
